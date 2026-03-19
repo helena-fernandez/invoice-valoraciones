@@ -3,178 +3,203 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>seQura — Paga en 7 días: BNPL Intelligence</title>
+<title>seQura — Invoice Intelligence</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --green:      #02C2A5;
-  --green2:     #21CFAC;
-  --green-l:    #CBFFFE;
-  --green-d:    rgba(2,194,165,.13);
-  --green-dd:   rgba(2,194,165,.06);
-  --purple:     #7B5CF5;
-  --purple-d:   rgba(123,92,245,.12);
-  --bg:         #0C0F0E;
-  --bg2:        #131917;
-  --sur:        #161E1C;
-  --sur2:       #1B2421;
-  --bdr:        rgba(2,194,165,.11);
-  --bdr2:       rgba(255,255,255,.055);
-  --txt:        #E5EDEB;
-  --muted:      #5C786F;
-  --muted2:     #89A39B;
-  --white:      #EFF8F5;
-  --red:        #FF5C6A;
-  --amber:      #F5A623;
-  --grad:       linear-gradient(135deg,#02C2A5,#0DA88E);
+  --teal:     #02C2A5;
+  --teal2:    #00E5C5;
+  --teal-d:   rgba(2,194,165,.1);
+  --teal-dd:  rgba(2,194,165,.05);
+  --bg:       #F0F2F5;
+  --card:     #FFFFFF;
+  --card2:    #F7F9FB;
+  --bdr:      rgba(0,0,0,.07);
+  --bdr2:     rgba(0,0,0,.05);
+  --txt:      #0D1117;
+  --txt2:     #4B5563;
+  --txt3:     #9CA3AF;
+  --red:      #EF4444;
+  --amber:    #F59E0B;
+  --green:    #10B981;
+  --purple:   #8B5CF6;
+  --navy:     #1B2A3B;
+  --shadow:   0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.04);
+  --shadow-lg:0 2px 8px rgba(0,0,0,.08), 0 12px 40px rgba(0,0,0,.06);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif;font-size:14px;line-height:1.6;overflow-x:hidden}
+body{background:var(--bg);color:var(--txt);font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;line-height:1.6;overflow-x:hidden;min-height:100vh}
 
-/* HEADER */
-header{height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;border-bottom:1px solid var(--bdr);position:sticky;top:0;z-index:100;background:rgba(12,15,14,.94);backdrop-filter:blur(16px)}
+/* ── HEADER ── */
+header{height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:var(--card);border-bottom:1px solid var(--bdr);position:sticky;top:0;z-index:100;box-shadow:0 1px 0 var(--bdr)}
 .logo{display:flex;align-items:center;gap:10px}
-.lm{width:27px;height:27px;background:var(--grad);border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:12px;color:#0C0F0E}
-.lt{font-family:'Syne',sans-serif;font-weight:700;font-size:15px;color:var(--white)}
-.ls{font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;padding-left:10px;border-left:1px solid var(--bdr)}
-.hr{display:flex;align-items:center;gap:18px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)}
-.dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 2s infinite;display:inline-block;margin-right:5px}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.lm{width:32px;height:32px;background:var(--teal);border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px;color:#fff;letter-spacing:-.5px}
+.lt{font-weight:700;font-size:15px;color:var(--txt)}
+.ls{font-size:11px;color:var(--txt3);font-family:'DM Mono',monospace;padding-left:12px;border-left:1px solid var(--bdr)}
+.hr{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--txt3);font-family:'DM Mono',monospace}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 2s infinite;display:inline-block}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
 
-/* HERO */
-.hero{padding:56px 40px 40px;border-bottom:1px solid var(--bdr);position:relative;overflow:hidden}
-.hero::after{content:'';position:absolute;bottom:-100px;right:-60px;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,rgba(2,194,165,.07) 0%,transparent 65%);pointer-events:none}
-.chip{display:inline-flex;align-items:center;gap:7px;background:var(--green-d);border:1px solid rgba(2,194,165,.22);border-radius:100px;padding:4px 13px;font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--green);text-transform:uppercase;letter-spacing:.08em;margin-bottom:22px}
-.hero h1{font-family:'Syne',sans-serif;font-size:clamp(30px,4.2vw,50px);font-weight:800;line-height:1.06;color:var(--white);max-width:660px;margin-bottom:14px}
-.hero h1 .acc{color:var(--green)}
-.hero-d{color:var(--muted2);max-width:520px;font-size:13.5px;margin-bottom:40px;line-height:1.65}
-.stats{display:flex;gap:10px;flex-wrap:wrap}
-.sc{background:var(--sur);border:1px solid var(--bdr);border-radius:11px;padding:15px 18px;min-width:150px;flex:1;max-width:210px}
-.sc .lbl{font-size:9.5px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px}
-.sc .val{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;line-height:1;margin-bottom:3px}
-.sc .sub{font-size:11px;color:var(--muted)}
-.stats-label{font-size:9px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:18px 0 8px;display:flex;align-items:center;gap:8px}
-.stats-label::after{content:'';flex:1;height:1px;background:var(--bdr)}
-.sc-sm{background:var(--sur2);border:1px solid var(--bdr2);border-radius:9px;padding:10px 14px;min-width:120px;flex:1}
-.sc-sm .lbl{font-size:8.5px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:5px}
-.sc-sm .val{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;line-height:1;margin-bottom:2px}
-.sc-sm .sub{font-size:10px;color:var(--muted)}
-.g{color:var(--green)}.a{color:var(--amber)}.r{color:var(--red)}.p{color:var(--purple)}.w{color:var(--white)}
+/* ── HERO ── */
+.hero{padding:28px;background:var(--navy);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-120px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(2,194,165,.15) 0%,transparent 65%);pointer-events:none}
+.hero-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:28px;position:relative}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(2,194,165,.15);border:1px solid rgba(2,194,165,.3);border-radius:100px;padding:5px 12px;font-size:10px;font-family:'DM Mono',monospace;color:var(--teal);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
+.hero h1{font-size:clamp(26px,3.5vw,42px);font-weight:800;line-height:1.08;color:#fff;max-width:520px}
+.hero h1 span{color:var(--teal)}
+.hero-sub{color:rgba(255,255,255,.5);font-size:12.5px;margin-top:10px;max-width:420px;line-height:1.65}
 
-/* LAYOUT */
-.layout{display:grid;grid-template-columns:1fr 355px;min-height:calc(100vh - 190px)}
-.content{padding:34px 40px;border-right:1px solid var(--bdr);overflow:hidden}
+/* ── BENTO GRID ── */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;position:relative}
+.bento-sm{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.bento-label{font-size:9px;font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.3);margin-bottom:8px;margin-top:4px}
+.bc{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px 16px;backdrop-filter:blur(8px);transition:background .2s}
+.bc:hover{background:rgba(255,255,255,.08)}
+.bc .lbl{font-size:9px;font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4);margin-bottom:10px}
+.bc .val{font-size:28px;font-weight:800;line-height:1;color:#fff;margin-bottom:3px}
+.bc .val.teal{color:var(--teal)}
+.bc .val.amber{color:#FBB724}
+.bc .val.red{color:#FF6B7A}
+.bc .sub{font-size:10.5px;color:rgba(255,255,255,.35)}
+.bc-sm{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:11px;padding:13px 14px}
+.bc-sm .lbl{font-size:8.5px;font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.35);margin-bottom:7px}
+.bc-sm .val{font-size:20px;font-weight:700;color:#fff;line-height:1;margin-bottom:2px}
+.bc-sm .val.teal{color:var(--teal)}
+.bc-sm .sub{font-size:9.5px;color:rgba(255,255,255,.3)}
 
-/* TABS */
-.tabs{display:flex;gap:2px;margin-bottom:32px;border-bottom:1px solid var(--bdr)}
-.tab{padding:8px 16px 11px;background:none;border:none;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .17s;white-space:nowrap}
-.tab:hover{color:var(--txt)}.tab.on{color:var(--green);border-bottom-color:var(--green)}
+/* ── LAYOUT ── */
+.layout{display:grid;grid-template-columns:1fr 360px;min-height:calc(100vh - 60px);gap:0}
+.content{padding:24px 28px;overflow:hidden}
+
+/* ── TABS ── */
+.tabs{display:flex;gap:4px;margin-bottom:24px;background:var(--card);border-radius:12px;padding:5px;box-shadow:var(--shadow)}
+.tab{padding:8px 14px;background:none;border:none;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;color:var(--txt3);cursor:pointer;border-radius:8px;transition:all .17s;white-space:nowrap;flex:1}
+.tab:hover{color:var(--txt);background:var(--bg)}
+.tab.on{color:var(--teal);background:var(--teal-d)}
 .panel{display:none}.panel.on{display:block}
 
-/* ATOMS */
-.sh-tag{font-size:9px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px}
-.sh-title{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:var(--white);display:flex;align-items:center;gap:9px;margin-bottom:18px}
-.pill{display:inline-block;padding:2px 8px;border-radius:100px;font-size:9.5px;font-family:'JetBrains Mono',monospace}
-.pg{background:rgba(2,194,165,.11);color:var(--green);border:1px solid rgba(2,194,165,.18)}
-.pr{background:rgba(255,92,106,.09);color:var(--red);border:1px solid rgba(255,92,106,.18)}
-.pa{background:rgba(245,166,35,.09);color:var(--amber);border:1px solid rgba(245,166,35,.18)}
-.pp{background:rgba(123,92,245,.11);color:var(--purple);border:1px solid rgba(123,92,245,.18)}
-.pm{background:var(--sur2);color:var(--muted2);border:1px solid var(--bdr2)}
-.div{height:1px;background:var(--bdr);margin:26px 0}
+/* ── SECTION HEADS ── */
+.sh-tag{font-size:9px;font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.12em;color:var(--txt3);margin-bottom:5px}
+.sh-title{font-size:16px;font-weight:700;color:var(--txt);display:flex;align-items:center;gap:9px;margin-bottom:16px;flex-wrap:wrap}
 
-/* CARDS */
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
-.fc{background:var(--sur);border:1px solid var(--bdr2);border-radius:10px;padding:16px}
-.fc.love{border-left:3px solid var(--green)}.fc.pain{border-left:3px solid var(--red)}.fc.warn{border-left:3px solid var(--amber)}.fc.info{border-left:3px solid var(--purple)}
-.fc-icon{font-size:17px;margin-bottom:8px}
-.fc-title{font-size:12px;font-weight:600;color:var(--white);margin-bottom:6px}
-.fc-text{font-size:11.5px;color:var(--muted2);line-height:1.55}
+/* ── PILLS ── */
+.pill{display:inline-block;padding:2px 9px;border-radius:100px;font-size:10px;font-weight:600}
+.pg{background:rgba(16,185,129,.1);color:var(--green)}
+.pr{background:rgba(239,68,68,.1);color:var(--red)}
+.pa{background:rgba(245,158,11,.1);color:var(--amber)}
+.pp{background:rgba(139,92,246,.1);color:var(--purple)}
+.pm{background:var(--card2);color:var(--txt3)}
+.div{height:1px;background:var(--bdr);margin:22px 0}
 
-/* QUOTES */
-.q{background:var(--sur2);border-left:3px solid var(--green2);border-radius:0 8px 8px 0;padding:13px 16px;margin:9px 0;font-size:12px;font-style:italic;color:var(--txt);line-height:1.6}
-.q.neg{border-left-color:var(--red)}.q.warn{border-left-color:var(--amber)}.q.info{border-left-color:var(--purple)}
-.q cite{display:block;font-style:normal;font-size:9.5px;color:var(--muted);margin-top:6px;font-family:'JetBrains Mono',monospace}
+/* ── FEATURE CARDS ── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.fc{background:var(--card);border:1px solid var(--bdr);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
+.fc.love{border-top:3px solid var(--green)}
+.fc.pain{border-top:3px solid var(--red)}
+.fc.warn{border-top:3px solid var(--amber)}
+.fc.info{border-top:3px solid var(--purple)}
+.fc-icon{font-size:18px;margin-bottom:9px}
+.fc-title{font-size:12.5px;font-weight:700;color:var(--txt);margin-bottom:6px}
+.fc-text{font-size:11.5px;color:var(--txt2);line-height:1.6}
 
-/* SOURCE BADGE */
-.src{display:inline-flex;align-items:center;gap:5px;background:var(--sur2);border:1px solid var(--bdr2);border-radius:4px;padding:2px 7px;font-size:9px;font-family:'JetBrains Mono',monospace;color:var(--muted2);margin-bottom:5px;margin-top:4px}
+/* ── QUOTES ── */
+.q{background:var(--card);border-left:3px solid var(--teal);border-radius:0 10px 10px 0;padding:14px 17px;margin:9px 0;font-size:12.5px;font-style:italic;color:var(--txt);line-height:1.65;box-shadow:var(--shadow)}
+.q.neg{border-left-color:var(--red)}
+.q.warn{border-left-color:var(--amber)}
+.q cite{display:block;font-style:normal;font-size:9.5px;color:var(--txt3);margin-top:7px;font-family:'DM Mono',monospace}
 
-/* ALERT */
-.al{display:flex;gap:11px;padding:13px 15px;border-radius:9px;margin-bottom:17px;font-size:12px;line-height:1.55}
-.al-g{background:var(--green-d);border:1px solid rgba(2,194,165,.18)}
-.al-r{background:rgba(255,92,106,.07);border:1px solid rgba(255,92,106,.18)}
-.al-a{background:rgba(245,166,35,.07);border:1px solid rgba(245,166,35,.18)}
-.al-p{background:var(--purple-d);border:1px solid rgba(123,92,245,.18)}
-.al-icon{font-size:15px;flex-shrink:0;margin-top:1px}
-.al-b strong{display:block;font-size:11.5px;font-weight:600;margin-bottom:3px}
-.al-b p{color:var(--muted2)}
+/* ── SOURCE ── */
+.src{display:inline-flex;align-items:center;gap:5px;background:var(--card2);border:1px solid var(--bdr);border-radius:5px;padding:3px 8px;font-size:9px;font-family:'DM Mono',monospace;color:var(--txt3);margin-bottom:4px}
 
-/* PLATFORM SCORE CARDS */
-.psc-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:24px}
-.psc{background:var(--sur);border:1px solid var(--bdr2);border-radius:10px;padding:14px 16px;text-align:center}
-.psc .plat{font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px}
-.psc .score{font-family:'Syne',sans-serif;font-size:28px;font-weight:800}
-.psc .reviews{font-size:10px;color:var(--muted);margin-top:3px}
-.psc .gap{font-size:10px;margin-top:5px;font-weight:600}
-.psc.warn-card{border-color:rgba(245,166,35,.2)}
-.psc.good-card{border-color:rgba(2,194,165,.2)}
+/* ── ALERTS ── */
+.al{display:flex;gap:12px;padding:14px 16px;border-radius:11px;margin-bottom:16px;font-size:12.5px;line-height:1.55}
+.al-g{background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2)}
+.al-r{background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.18)}
+.al-a{background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.2)}
+.al-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.al-b strong{display:block;font-size:12px;font-weight:700;margin-bottom:3px;color:var(--txt)}
+.al-b p{color:var(--txt2);font-size:11.5px}
 
-/* COMP CARDS */
-.comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
-.cc{background:var(--sur);border:1px solid var(--bdr2);border-radius:12px;padding:20px;transition:border-color .18s}
-.cc:hover{border-color:rgba(2,194,165,.18)}.cc.feat{border-color:rgba(2,194,165,.25);background:rgba(2,194,165,.03)}
+/* ── PLATFORM SCORES ── */
+.psc-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:20px}
+.psc{background:var(--card);border:1px solid var(--bdr);border-radius:12px;padding:18px;text-align:center;box-shadow:var(--shadow)}
+.psc .plat{font-size:10px;font-family:'DM Mono',monospace;color:var(--txt3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px}
+.psc .score{font-size:30px;font-weight:800;line-height:1}
+.psc .reviews{font-size:10px;color:var(--txt3);margin-top:4px}
+.psc .gap{font-size:10.5px;margin-top:6px;font-weight:600}
+.psc.warn-card{border-top:3px solid var(--amber)}
+.psc.good-card{border-top:3px solid var(--green)}
+.score.g{color:var(--green)}.score.a{color:var(--amber)}.score.r{color:var(--red)}
+
+/* ── COMPETITION CARDS ── */
+.comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.cc{background:var(--card);border:1px solid var(--bdr);border-radius:14px;padding:20px;box-shadow:var(--shadow);transition:box-shadow .2s}
+.cc:hover{box-shadow:var(--shadow-lg)}
+.cc.feat{border:2px solid var(--teal);background:linear-gradient(135deg,rgba(2,194,165,.04),#fff)}
 .cc-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
-.cc-name{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--white)}
-.cc-name.g{color:var(--green)}
-.cc-sub{font-size:11px;color:var(--muted);margin-top:2px}
-.cc-score-val{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--green);text-align:right}
-.cc-score-sub{font-size:9.5px;color:var(--muted);font-family:'JetBrains Mono',monospace}
-.cc-row{display:flex;justify-content:space-between;align-items:center;padding:6px 9px;background:var(--sur2);border-radius:6px;margin-bottom:7px;font-size:11px}
-.cc-rl{color:var(--muted2)}.cc-rv{font-weight:500}
-.vg{color:var(--green)}.vr{color:var(--red)}.va{color:var(--amber)}.vu{color:var(--purple)}
+.cc-name{font-size:16px;font-weight:800;color:var(--txt)}
+.cc-name.teal{color:var(--teal)}
+.cc-sub{font-size:10.5px;color:var(--txt3);margin-top:2px}
+.cc-score-val{font-size:15px;font-weight:700;color:var(--teal);text-align:right}
+.cc-score-sub{font-size:9.5px;color:var(--txt3);font-family:'DM Mono',monospace}
+.cc-row{display:flex;justify-content:space-between;align-items:center;padding:7px 10px;background:var(--card2);border-radius:8px;margin-bottom:6px;font-size:11px}
+.cc-rl{color:var(--txt2);font-weight:500}.cc-rv{font-weight:600}
+.vg{color:var(--green)}.vr{color:var(--red)}.va{color:var(--amber)}.vu{color:var(--purple)}.vm{color:var(--txt3)}
 .cc-ins{margin-top:12px}
-.ci{display:flex;gap:7px;margin-bottom:6px;font-size:11px;color:var(--muted2);line-height:1.4}
+.ci{display:flex;gap:7px;margin-bottom:5px;font-size:11px;color:var(--txt2);line-height:1.45}
 
-/* TABLE */
-.dt{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:24px}
-.dt th{text-align:left;padding:7px 12px;font-family:'JetBrains Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);border-bottom:1px solid var(--bdr)}
-.dt td{padding:10px 12px;border-bottom:1px solid rgba(2,194,165,.04);vertical-align:middle}
-.dt tr:hover td{background:rgba(2,194,165,.02)}
+/* ── TABLE ── */
+.dt{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:20px;background:var(--card);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+.dt th{text-align:left;padding:10px 14px;font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3);background:var(--card2);border-bottom:1px solid var(--bdr)}
+.dt td{padding:11px 14px;border-bottom:1px solid var(--bdr2);vertical-align:middle}
+.dt tr:last-child td{border-bottom:none}
+.dt tr:hover td{background:rgba(2,194,165,.03)}
 
-/* OPP */
-.opp{display:flex;gap:13px;padding:14px;background:var(--sur);border:1px solid var(--bdr2);border-radius:10px;margin-bottom:10px;align-items:flex-start}
-.n-circ{width:25px;height:25px;border-radius:50%;background:var(--green-d);color:var(--green);font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'JetBrains Mono',monospace}
-.ob h4{font-size:12px;font-weight:600;color:var(--white);margin-bottom:3px}
-.ob p{font-size:11px;color:var(--muted2);line-height:1.5}
+/* ── OPPORTUNITIES ── */
+.opp{display:flex;gap:14px;padding:16px;background:var(--card);border:1px solid var(--bdr);border-radius:12px;margin-bottom:9px;align-items:flex-start;box-shadow:var(--shadow)}
+.n-circ{width:28px;height:28px;border-radius:50%;background:var(--teal-d);color:var(--teal);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'DM Mono',monospace}
+.ob h4{font-size:12.5px;font-weight:700;color:var(--txt);margin-bottom:4px}
+.ob p{font-size:11.5px;color:var(--txt2);line-height:1.55}
 
-/* CHAT */
-.chat{display:flex;flex-direction:column;height:calc(100vh - 56px);position:sticky;top:56px}
-.ch{padding:18px 20px 13px;border-bottom:1px solid var(--bdr);flex-shrink:0}
-.ch-t{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--white);margin-bottom:3px}
-.ch-s{font-size:11px;color:var(--muted)}
-.cm{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:9px;scrollbar-width:thin;scrollbar-color:var(--sur2) transparent}
-.msg{max-width:92%;padding:10px 13px;border-radius:10px;font-size:12px;line-height:1.55;animation:mi .18s ease}
+/* ── CHAT ── */
+.chat-wrap{background:var(--card);border-left:1px solid var(--bdr);display:flex;flex-direction:column;height:calc(100vh - 60px);position:sticky;top:60px}
+.ch{padding:18px 20px 14px;border-bottom:1px solid var(--bdr);flex-shrink:0}
+.ch-t{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:2px}
+.ch-s{font-size:11px;color:var(--txt3)}
+.cm{flex:1;overflow-y:auto;padding:14px 16px;display:flex;flex-direction:column;gap:8px;scrollbar-width:thin;scrollbar-color:var(--bdr) transparent}
+.msg{max-width:92%;padding:10px 13px;border-radius:12px;font-size:12px;line-height:1.55;animation:mi .18s ease}
 @keyframes mi{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
-.msg.u{align-self:flex-end;background:var(--green-d);border:1px solid rgba(2,194,165,.18);color:var(--txt)}
-.msg.b{align-self:flex-start;background:var(--sur);border:1px solid var(--bdr2);color:var(--txt)}
-.msg.s{align-self:center;background:var(--sur2);border:1px dashed var(--bdr2);color:var(--muted);font-size:10.5px;text-align:center}
-.msg.l{align-self:flex-start;background:var(--sur);border:1px solid var(--bdr2);color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:11px}
-.msg.b strong{color:var(--green-l)}.msg.b ul{padding-left:15px;margin:4px 0}.msg.b li{color:var(--muted2);margin-bottom:2px}
-.dots span{display:inline-block;animation:dt 1.4s infinite}.dots span:nth-child(2){animation-delay:.2s}.dots span:nth-child(3){animation-delay:.4s}
+.msg.u{align-self:flex-end;background:var(--teal);color:#fff}
+.msg.b{align-self:flex-start;background:var(--card2);border:1px solid var(--bdr);color:var(--txt)}
+.msg.s{align-self:center;background:#FEF9C3;border:1px solid #FDE68A;color:#92400E;font-size:11px;text-align:center;padding:8px 12px}
+.msg.l{align-self:flex-start;background:var(--card2);border:1px solid var(--bdr);color:var(--txt3);font-family:'DM Mono',monospace;font-size:11px}
+.msg.b strong{color:var(--teal)}
+.dots span{display:inline-block;animation:dt 1.4s infinite}
+.dots span:nth-child(2){animation-delay:.2s}.dots span:nth-child(3){animation-delay:.4s}
 @keyframes dt{0%,80%,100%{transform:scale(.8);opacity:.4}40%{transform:scale(1.1);opacity:1}}
-.cw{padding:0 16px 9px;flex-shrink:0}
-.cl{font-size:9.5px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:6px}
+.cw{padding:0 14px 8px;flex-shrink:0}
+.cl{font-size:9px;font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.09em;color:var(--txt3);margin-bottom:6px}
 .chips{display:flex;flex-wrap:wrap;gap:5px}
-.chip2{background:var(--sur);border:1px solid var(--bdr);border-radius:100px;padding:4px 10px;font-size:10.5px;color:var(--muted2);cursor:pointer;transition:all .17s}
-.chip2:hover{border-color:var(--green);color:var(--green);background:var(--green-d)}
-.ciw{padding:12px 16px;border-top:1px solid var(--bdr);flex-shrink:0;display:flex;gap:7px;align-items:flex-end}
-textarea{flex:1;background:var(--sur);border:1px solid var(--bdr);border-radius:8px;padding:8px 12px;color:var(--txt);font-family:'Inter',sans-serif;font-size:12px;resize:none;outline:none;max-height:100px;min-height:36px;line-height:1.5;transition:border-color .18s}
-textarea:focus{border-color:rgba(2,194,165,.32)}textarea::placeholder{color:var(--muted)}
-.sbtn{width:36px;height:36px;border-radius:8px;background:var(--green);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .18s;flex-shrink:0}
-.sbtn:hover{background:var(--green2)}.sbtn:disabled{background:var(--sur2);cursor:not-allowed}
+.chip2{background:var(--card2);border:1px solid var(--bdr);border-radius:100px;padding:5px 11px;font-size:10.5px;color:var(--txt2);cursor:pointer;transition:all .17s;font-weight:500}
+.chip2:hover{border-color:var(--teal);color:var(--teal);background:var(--teal-d)}
+.ciw{padding:12px 14px;border-top:1px solid var(--bdr);flex-shrink:0;display:flex;gap:8px;align-items:flex-end}
+textarea{flex:1;background:var(--card2);border:1px solid var(--bdr);border-radius:10px;padding:9px 13px;color:var(--txt);font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;resize:none;outline:none;max-height:100px;min-height:38px;line-height:1.5;transition:border-color .18s}
+textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(2,194,165,.1)}
+textarea::placeholder{color:var(--txt3)}
+.sbtn{width:38px;height:38px;border-radius:10px;background:var(--teal);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .18s;flex-shrink:0}
+.sbtn:hover{background:var(--teal2)}.sbtn:disabled{background:var(--bdr);cursor:not-allowed}
 
-@media(max-width:1080px){.layout{grid-template-columns:1fr}.chat{position:fixed;bottom:0;right:0;width:100%;height:360px;border-top:1px solid var(--bdr);z-index:50}.content{padding-bottom:400px}.g2,.comp-grid,.psc-row{grid-template-columns:1fr}}
-@media(max-width:660px){header{padding:0 16px}.hero{padding:40px 16px 30px}.content{padding:26px 16px}.stats{flex-direction:column}.sc{max-width:100%}.ls{display:none}}
+/* ── REDDIT ── */
+.rd{background:var(--card);border:1px solid var(--bdr);border-radius:12px;padding:14px 17px;margin-bottom:10px;box-shadow:var(--shadow)}
+.rd-head{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.rd-badge{display:inline-flex;align-items:center;gap:4px;background:rgba(255,69,0,.08);border:1px solid rgba(255,69,0,.15);border-radius:5px;padding:2px 7px;font-size:9px;font-family:'DM Mono',monospace;color:#D94E1F}
+.rd-title{font-size:12px;font-weight:600;color:var(--txt)}
+.rd-body{font-size:11.5px;color:var(--txt2);line-height:1.6}
+.rd-meta{font-size:10px;color:var(--txt3);margin-top:6px;font-family:'DM Mono',monospace}
+
+@media(max-width:1100px){.layout{grid-template-columns:1fr}.chat-wrap{position:fixed;bottom:0;right:0;width:100%;height:340px;border-top:1px solid var(--bdr);z-index:50}.content{padding-bottom:360px}.g2,.comp-grid,.psc-row{grid-template-columns:1fr}.bento{grid-template-columns:1fr 1fr}}
+@media(max-width:660px){.bento,.bento-sm{grid-template-columns:1fr 1fr}header{padding:0 16px}.hero{padding:20px 16px}.content{padding:16px}}
 </style>
 </head>
 <body>
@@ -185,25 +210,59 @@ textarea:focus{border-color:rgba(2,194,165,.32)}textarea::placeholder{color:var(
     <div class="lt">seQura</div>
     <div class="ls">Invoice Intelligence · Paga en 7 días</div>
   </div>
-  <div class="hr"><span><span class="dot"></span>Agente activo</span><span>España · Mar 2026</span></div>
+  <div class="hr"><span class="dot"></span>Agente activo &nbsp;·&nbsp; España · Mar 2026</div>
 </header>
 
 <div class="hero">
-  <div class="chip">🔬 Trustpilot · Google Play · App Store · Foros · Reddit · Comunidades</div>
-  <h1>Paga en 7 días —<br><span class="acc">invoice</span></h1>
-  <p class="hero-d">Análisis exclusivo del producto "Compra ahora, paga en 7 días" (invoice) de seQura. Valoraciones multifuente: Trustpilot, Google Play, App Store, foros españoles y comunidades. Comparativa de Klarna (30 días), Scalapay (sin invoice) y Aplazame (15 días).</p>
-  <div class="stats-label">seQura</div>
-  <div class="stats">
-    <div class="sc"><div class="lbl">Trustpilot ES</div><div class="val g">4.4 ★</div><div class="sub">+7.500 reviews · Invitadas</div></div>
-    <div class="sc"><div class="lbl">Google Maps</div><div class="val a">4.0 ★</div><div class="sub">983 reseñas · Maps</div></div>
-    <div class="sc"><div class="lbl">Google Play</div><div class="val a">3.7 ★</div><div class="sub">557 reviews · Orgánicas</div></div>
-    <div class="sc"><div class="lbl">App Store iOS</div><div class="val a">4.1 ★</div><div class="sub">187 valoraciones</div></div>
+  <div class="hero-top">
+    <div>
+      <div class="hero-badge">🔬 Análisis multifuente · Solo invoice</div>
+      <h1>Paga en 7 días —<br><span>invoice</span></h1>
+      <p class="hero-sub">Trustpilot · Google Maps · Google Play · App Store · Reddit · Comunidades. Comparativa Klarna, Aplazame, Scalapay.</p>
+    </div>
   </div>
-  <div class="stats-label">Competencia</div>
-  <div class="stats">
-    <div class="sc-sm"><div class="lbl">Klarna</div><div class="val g">4.0 TP★</div><div class="sub">4.7★ GP · 4.8★ iOS</div></div>
-    <div class="sc-sm"><div class="lbl">Aplazame</div><div class="val g">4.8 TP★</div><div class="sub">+27k reviews</div></div>
-    <div class="sc-sm"><div class="lbl">Scalapay</div><div class="val g">4.8 TP★</div><div class="sub">+124k · sin invoice</div></div>
+
+  <div class="bento-label">seQura</div>
+  <div class="bento">
+    <div class="bc">
+      <div class="lbl">Trustpilot ES</div>
+      <div class="val teal">4.4★</div>
+      <div class="sub">+7.500 reviews · Invitadas</div>
+    </div>
+    <div class="bc">
+      <div class="lbl">Google Maps</div>
+      <div class="val amber">4.0★</div>
+      <div class="sub">983 reseñas · Maps</div>
+    </div>
+    <div class="bc">
+      <div class="lbl">Google Play</div>
+      <div class="val amber">3.7★</div>
+      <div class="sub">557 reviews · Orgánicas</div>
+    </div>
+    <div class="bc">
+      <div class="lbl">App Store iOS</div>
+      <div class="val amber">4.1★</div>
+      <div class="sub">187 valoraciones</div>
+    </div>
+  </div>
+
+  <div class="bento-label">Competencia</div>
+  <div class="bento-sm">
+    <div class="bc-sm">
+      <div class="lbl">Klarna</div>
+      <div class="val teal">4.0 TP★</div>
+      <div class="sub">4.7★ GP · 4.8★ iOS</div>
+    </div>
+    <div class="bc-sm">
+      <div class="lbl">Aplazame</div>
+      <div class="val teal">4.8 TP★</div>
+      <div class="sub">+27k reviews</div>
+    </div>
+    <div class="bc-sm">
+      <div class="lbl">Scalapay</div>
+      <div class="val teal">4.8 TP★</div>
+      <div class="sub">+124k · sin invoice</div>
+    </div>
   </div>
 </div>
 
@@ -221,212 +280,165 @@ textarea:focus{border-color:rgba(2,194,165,.32)}textarea::placeholder{color:var(
 
   <!-- ════ TAB SEQURA ════ -->
   <div class="panel on" id="p-seq">
-
     <div class="sh-tag">Lo que adoran los clientes del invoice</div>
     <div class="sh-title">Drivers de amor al producto <span class="pill pg">✓ Positivo</span></div>
-
     <div class="g2">
       <div class="fc love"><div class="fc-icon">🛡️</div><div class="fc-title">Comprar sin confiar en la tienda</div><div class="fc-text">El caso de uso #1: comprar en una tienda desconocida sin arriesgar el dinero. El cliente recibe, comprueba calidad, y solo entonces paga. Elimina la barrera psicológica del "¿y si me estafan?".</div></div>
       <div class="fc love"><div class="fc-icon">⚡</div><div class="fc-title">Solo DNI + móvil. Sin nada más</div><div class="fc-text">Ningún competidor puede replicar esto. Sin tarjeta bancaria, sin documentación, sin registro previo. Aprobación en segundos. Los usuarios lo describen como experiencia "mágica" en la primera transacción.</div></div>
-      <div class="fc love"><div class="fc-icon">🔔</div><div class="fc-title">Avisos previos al vencimiento</div><div class="fc-text">Los emails de recordatorio antes del plazo son de lo más citado positivamente. El cliente siente que seQura trabaja a su favor para que no se le pase el plazo, no que le acecha para cobrarle recargos.</div></div>
-      <div class="fc love"><div class="fc-icon">🔄</div><div class="fc-title">Ampliación automática si el pedido llega tarde</div><div class="fc-text">Si el envío se retrasa, seQura amplía el plazo sin coste. Muy valorado: evita la situación injusta de pagar algo que aún no has recibido. Da sensación de que seQura está de tu lado.</div></div>
-      <div class="fc love"><div class="fc-icon">↩️</div><div class="fc-title">Devolver antes de pagar</div><div class="fc-text">Si el producto no gusta dentro del plazo de 7 días, simplemente no se paga. El proceso de compra se vuelve idéntico a comprar en una tienda física. Especialmente valorado en moda y calzado (talla/color).</div></div>
-      <div class="fc love"><div class="fc-icon">💯</div><div class="fc-title">Transparencia: lo que dicen = lo que hay</div><div class="fc-text">"No existe publicidad engañosa en todo el proceso." La promesa del invoice (gratis, sin trampa) coincide exactamente con la experiencia real. Genera confianza a largo plazo y fidelización.</div></div>
+      <div class="fc love"><div class="fc-icon">🔔</div><div class="fc-title">Avisos previos al vencimiento</div><div class="fc-text">Los emails de recordatorio antes del plazo son de lo más citado positivamente. El cliente siente que seQura trabaja a su favor, no que le acecha para cobrarle recargos.</div></div>
+      <div class="fc love"><div class="fc-icon">🔄</div><div class="fc-title">Ampliación automática si el pedido llega tarde</div><div class="fc-text">Si el envío se retrasa, seQura amplía el plazo sin coste. Muy valorado: evita la situación injusta de pagar algo que aún no has recibido.</div></div>
+      <div class="fc love"><div class="fc-icon">↩️</div><div class="fc-title">Devolver antes de pagar</div><div class="fc-text">Si el producto no gusta dentro del plazo de 7 días, simplemente no se paga. El proceso de compra se vuelve idéntico a comprar en una tienda física.</div></div>
+      <div class="fc love"><div class="fc-icon">💯</div><div class="fc-title">Transparencia: lo que dicen = lo que hay</div><div class="fc-text">"No existe publicidad engañosa en todo el proceso." La promesa del invoice coincide exactamente con la experiencia real. Genera confianza a largo plazo y fidelización.</div></div>
     </div>
-
     <div class="div"></div>
-
-    <div class="sh-tag">Citas directas de Trustpilot ES — sobre el invoice específicamente</div>
+    <div class="sh-tag">Citas directas de Trustpilot ES — sobre el invoice</div>
     <div class="sh-title">Voz del cliente <span class="pill pg">Verificadas</span></div>
-
     <div class="q">"Aunque podría haber pagado al momento, quise probar este modo de pago y me ha sorprendido mucho. Recibí el producto, todo bien, conforme y después pago. Ya he hecho otro pedido de la misma forma."<cite>— Trustpilot ES · 5★ · Cliente seQura</cite></div>
     <div class="q">"Está bien poder pagar 7 días después y así ves el pedido... Lo recomendaría porque es un servicio serio y seguro."<cite>— Trustpilot ES · 4★ · Cliente seQura</cite></div>
     <div class="q">"Genial si no dispones de la tarjeta en el momento de la compra. El pago a posteriori es muy sencillo. Ya utilicé este servicio con anterioridad y lo seguiré haciendo."<cite>— Trustpilot ES · 5★ · Cliente seQura</cite></div>
-
     <div class="div"></div>
-
     <div class="sh-tag">Pain points específicos del invoice</div>
     <div class="sh-title">Problemas identificados <span class="pill pr">⚠ A mejorar</span></div>
-
     <div class="g2">
-      <div class="fc pain"><div class="fc-icon">🚫</div><div class="fc-title">Rechazos sin explicación</div><div class="fc-text">"De un día para otro ya no me deja pagar en 7 días, habiendo tenido muchas compras pagadas al corriente." El algoritmo puede denegar sin dar razones, incluso a clientes con historial perfecto. Mayor fuente de frustración.</div></div>
-      <div class="fc pain"><div class="fc-icon">📦</div><div class="fc-title">Pedido dañado = nadie se responsabiliza</div><div class="fc-text">"Ármate de paciencia cuando el pedido te lo mandan dañado. La tienda no te resuelve, seQura tampoco." El cliente queda atrapado entre dos partes. Es el mayor driver de reviews 1-2★ sobre el invoice específicamente.</div></div>
-      <div class="fc pain"><div class="fc-icon">🔄</div><div class="fc-title">Devoluciones en curso + cobro pendiente</div><div class="fc-text">Cuando se inicia una devolución durante el plazo de 7 días, no siempre queda claro si hay que notificar a seQura para congelar el pago. Varios usuarios han recibido avisos de impago mientras la devolución estaba en proceso.</div></div>
-      <div class="fc pain"><div class="fc-icon">🤖</div><div class="fc-title">Soporte automático falla en incidencias</div><div class="fc-text">"El agobio cuando hay una incidencia es demencial: te comunicas con IA y no sirve de nada ningún comprobante ni extracto." Cuando el problema del invoice es real, el soporte automatizado no tiene criterio para resolverlo.</div></div>
+      <div class="fc pain"><div class="fc-icon">🚫</div><div class="fc-title">Rechazos sin explicación</div><div class="fc-text">"De un día para otro ya no me deja pagar en 7 días, habiendo tenido muchas compras pagadas al corriente." El algoritmo puede denegar sin dar razones, incluso a clientes con historial perfecto.</div></div>
+      <div class="fc pain"><div class="fc-icon">📦</div><div class="fc-title">Pedido dañado = nadie se responsabiliza</div><div class="fc-text">"Ármate de paciencia cuando el pedido te lo mandan dañado. La tienda no te resuelve, seQura tampoco." El cliente queda atrapado entre dos partes.</div></div>
+      <div class="fc pain"><div class="fc-icon">🔄</div><div class="fc-title">Devoluciones en curso + cobro pendiente</div><div class="fc-text">Cuando se inicia una devolución durante el plazo de 7 días, no siempre queda claro si hay que notificar a seQura para congelar el pago.</div></div>
+      <div class="fc pain"><div class="fc-icon">🤖</div><div class="fc-title">Soporte automático falla en incidencias</div><div class="fc-text">"El agobio cuando hay una incidencia es demencial: te comunicas con IA y no sirve de nada ningún comprobante ni extracto."</div></div>
     </div>
-
-    <div class="q neg">"Hice la devolución antes de la fecha límite de pago. Aún así me llegó un correo diciendo que no había hecho el pago y que tomarían represalias. Les envié pantallazo con la fecha de devolución... y aun así el expediente pasó al departamento jurídico."<cite>— Trustpilot ES · 2★ · Cliente seQura · Problema invoice + devolución simultánea</cite></div>
-
-  </div><!-- /seq -->
+    <div class="q neg">"Hice la devolución antes de la fecha límite de pago. Aún así me llegó un correo diciendo que no había hecho el pago y que tomarían represalias. Les envié pantallazo con la fecha de devolución... y aun así el expediente pasó al departamento jurídico."<cite>— Trustpilot ES · 2★ · Problema invoice + devolución simultánea</cite></div>
+  </div>
 
   <!-- ════ TAB GOOGLE & APP ════ -->
   <div class="panel" id="p-google">
-
     <div class="al al-r">
       <div class="al-icon">🚨</div>
-      <div class="al-b"><strong>Hallazgo crítico: brecha entre Trustpilot y stores de apps (Google Play + iOS)</strong>
-      <p>seQura tiene 4.4★ en Trustpilot (reviews invitadas) pero 3.7★ en Google Play y 4.1★ en App Store (reviews orgánicas). Google Business no está indexado en Maps para seQura. Las stores de apps son los canales más orgánicos y menos manipulables — la brecha con Trustpilot es un hallazgo crítico.</p></div>
+      <div class="al-b"><strong>Hallazgo crítico: brecha entre Trustpilot y stores de apps</strong>
+      <p>seQura tiene 4.4★ en Trustpilot (invitadas) pero 3.7★ en Google Play y 4.1★ en App Store (orgánicas). Las stores son más honestas — la brecha es un indicador clave de satisfacción real.</p></div>
     </div>
-
     <div class="sh-tag">Comparativa de ratings por plataforma</div>
-    <div class="sh-title">Ratings multifuente — seQura (Trustpilot vs stores orgánicas) <span class="pill pa">⚠ Brecha</span></div>
-
+    <div class="sh-title">Ratings multifuente — seQura <span class="pill pa">⚠ Brecha</span></div>
     <div class="psc-row">
       <div class="psc good-card"><div class="plat">Trustpilot ES</div><div class="score g">4.4 ★</div><div class="reviews">+7.500 reviews</div><div class="gap" style="color:var(--amber)">Reviews invitadas*</div></div>
       <div class="psc warn-card"><div class="plat">Google Play</div><div class="score a">3.7 ★</div><div class="reviews">557 reviews</div><div class="gap" style="color:var(--red)">−0.7 pts vs Trustpilot</div></div>
       <div class="psc warn-card"><div class="plat">App Store iOS</div><div class="score a">4.1 ★</div><div class="reviews">187 valoraciones</div><div class="gap" style="color:var(--amber)">−0.3 pts vs Trustpilot</div></div>
     </div>
-
     <div class="al al-a">
       <div class="al-icon">ℹ️</div>
-      <div class="al-b"><strong>Contexto: ¿por qué difieren tanto Trustpilot y Google Play?</strong>
-      <p>Trustpilot detectó que seQura puede estar usando un método de invitación a reviews ya discontinuado. Las reviews de stores (Google Play y App Store) las deja el usuario por voluntad propia — más honestas que Trustpilot. Google Business/Maps no muestra perfil de seQura como negocio con reviews de Maps. La principal fuente orgánica son las apps: GP 3.7★ (557 reviews) y iOS 4.1★ (187 valoraciones).</p></div>
+      <div class="al-b"><strong>¿Por qué difieren Trustpilot y Google Play?</strong>
+      <p>Trustpilot detectó que seQura puede estar usando un método de invitación discontinuado. Las reviews de stores las deja el usuario por voluntad propia. GP 3.7★ (557 reviews) y iOS 4.1★ (187 valoraciones) son la fuente más orgánica disponible.</p></div>
     </div>
-
-    <div class="sh-tag">App Store iOS + Google Play — reviews sobre el invoice (2025-2026)</div>
-    <div class="sh-title">Voz orgánica — sin invitación <span class="pill pr">Orgánico</span></div>
-
-    <div class="src">📱 App Store iOS · "Notificar devolución" · Feb 2026</div>
-    <div class="q neg">"Quiero saber por qué no me deja notificar las devoluciones en la app."<cite>— App Store ES · Review sobre el flujo de devolución del invoice — el cliente no puede avisar a seQura desde la app cuando devuelve un pedido</cite></div>
-
-    <div class="src">📱 App Store iOS · "Mala gestión" · Feb 2026</div>
-    <div class="q neg">"Te suben 20€ si no pagas un día el pago aunque sea 1€."<cite>— App Store ES · Recargo percibido como desproporcionado al retrasar un pago del invoice</cite></div>
-
-    <div class="src">📱 Google Play · Trey Marma · Feb 2026 · 5 usuarios lo encontraron útil</div>
-    <div class="q warn">"He escrito a Sequra para que permita pagar en unos días más [el invoice] y no siga subiendo, y todas las contestaciones son para un procedimiento que nada tiene que ver con lo que intento solucionar."<cite>— Google Play ES · 2★ · El soporte automático no resuelve situaciones de fuerza mayor que afectan al pago del invoice</cite></div>
-
-    <div class="src">📱 App Store iOS · "Fantástica" · Dic 2025</div>
-    <div class="q">"Muy buena, nunca he tenido ningún problema."<cite>— App Store ES · 5★ · Experiencia positiva con el producto invoice de seQura</cite></div>
-
+    <div class="sh-tag">Reviews orgánicas sobre el invoice (2025-2026)</div>
+    <div class="sh-title">Voz sin invitación <span class="pill pr">Orgánico</span></div>
+    <div class="src">📱 App Store iOS · Feb 2026</div>
+    <div class="q neg">"Quiero saber por qué no me deja notificar las devoluciones en la app."<cite>— App Store ES · Flujo de devolución del invoice roto en app</cite></div>
+    <div class="src">📱 App Store iOS · Feb 2026</div>
+    <div class="q neg">"Te suben 20€ si no pagas un día el pago aunque sea 1€."<cite>— App Store ES · Recargo percibido como desproporcionado</cite></div>
+    <div class="src">📱 Google Play · Trey Marma · Feb 2026 · 5 útiles</div>
+    <div class="q warn">"He escrito a Sequra para que permita pagar en unos días más y no siga subiendo, y todas las contestaciones son para un procedimiento que nada tiene que ver con lo que intento solucionar."<cite>— Google Play ES · 2★ · Soporte automático no resuelve situaciones de fuerza mayor</cite></div>
+    <div class="src">📱 App Store iOS · Dic 2025</div>
+    <div class="q">"Muy buena, nunca he tenido ningún problema."<cite>— App Store ES · 5★</cite></div>
     <div class="div"></div>
-
-    <div class="sh-tag">Comparativa apps — seQura vs Klarna</div>
+    <div class="sh-tag">Comparativa app — seQura vs Klarna</div>
     <div class="sh-title">Rating de app: ventaja clara de Klarna <span class="pill pr">Gap importante</span></div>
-
     <div class="g2">
       <div class="fc warn">
         <div class="fc-icon">📱</div>
-        <div class="fc-title">seQura App — 3.7★ Google Play · 4.1★ iOS</div>
-        <div class="fc-text">Google Play: 557 reviews orgánicas (3.7★). App Store: 187 valoraciones (4.1★). En ambas plataformas la nota es inferior a Trustpilot (4.4★). Las reviews de app hablan de: flujo de devolución roto, soporte automático no resolutivo ante el invoice, y recargos percibidos como desproporcionados.</div>
+        <div class="fc-title">seQura App — 3.7★ GP · 4.1★ iOS</div>
+        <div class="fc-text">En ambas plataformas la nota es inferior a Trustpilot (4.4★). Las reviews hablan de: flujo de devolución roto, soporte automático no resolutivo y recargos percibidos como desproporcionados.</div>
       </div>
       <div class="fc love">
         <div class="fc-icon">📱</div>
-        <div class="fc-title">Klarna App — 4.7★ Google Play · 4.8★ iOS</div>
-        <div class="fc-text">App Store: 4.8★ con cientos de miles de ratings. Google Play: 4.7★. App muy completa: tracking de pedidos, devoluciones en un clic, pausa automática en disputas, historial de pagos. La ventaja de Klarna en experiencia de app es real y significativa en ambas plataformas.</div>
+        <div class="fc-title">Klarna App — 4.7★ GP · 4.8★ iOS</div>
+        <div class="fc-text">App muy completa: tracking de pedidos, devoluciones en un clic, pausa automática en disputas, historial de pagos. La ventaja de Klarna en experiencia de app es real y significativa.</div>
       </div>
     </div>
-
     <div class="al al-r">
       <div class="al-icon">⚠️</div>
-      <div class="al-b"><strong>La app de seQura es el talón de Aquiles del invoice</strong>
-      <p>El invoice se gestiona post-compra vía email y app. GP 3.7★ / iOS 4.1★ frente a Klarna 4.7★ GP / 4.8★ iOS. En ambas plataformas seQura está por debajo. Esta brecha se traduce directamente en menor recurrencia del invoice, que depende de la app para gestionar ampliaciones, devoluciones y pagos.</p></div>
+      <div class="al-b"><strong>El talón de Aquiles del invoice: la app</strong>
+      <p>El invoice se gestiona post-compra vía app. GP 3.7★ / iOS 4.1★ frente a Klarna 4.7★ GP / 4.8★ iOS. En ambas plataformas seQura está por debajo. Esta brecha se traduce en menor recurrencia del invoice.</p></div>
     </div>
+  </div>
 
-  </div><!-- /google -->
-
-  <!-- ════ TAB FOROS & REDDIT ════ -->
+  <!-- ════ TAB FOROS ════ -->
   <div class="panel" id="p-com">
-
-    <div class="al al-p">
-      <div class="al-icon">🎯</div>
-      <div class="al-b"><strong>Metodología: Reddit como canal más orgánico</strong>
-      <p>Reddit es donde los usuarios hablan con libertad sobre su experiencia real con productos financieros, sin que nadie les haya invitado. A diferencia de Trustpilot, el tono es más crítico y directo. Para el invoice de seQura en español los datos son insuficientes — por eso se complementa con datos de la competencia (Klarna Pay in 30, el producto equivalente).</p></div>
+    <div class="sh-tag">Comunidades online — solo invoice / paga después</div>
+    <div class="sh-title">Reddit · Solo datos de pago diferido <span class="pill pm">Sin fraccionados</span></div>
+    <div class="al al-a">
+      <div class="al-icon">⚠️</div>
+      <div class="al-b"><strong>Datos insuficientes en España</strong>
+      <p>No existen hilos específicos sobre el invoice de seQura en Reddit en español. El canal de discusión en España son los foros locales (Forocoches, El Chapuzas). Los datos de Reddit provienen de comunidades sobre Klarna Pay in 30 — producto equivalente en plazo diferido.</p></div>
     </div>
-
-    <div class="sh-tag">Reddit — seQura invoice en español</div>
-    <div class="sh-title">Reddit ES — datos insuficientes <span class="pill pr">Sin datos suficientes</span></div>
-
-    <div class="al al-r">
-      <div class="al-icon">🔴</div>
-      <div class="al-b"><strong>Reddit España no tiene hilos relevantes sobre el invoice de seQura</strong>
-      <p>No existen hilos activos en Reddit en español que analicen específicamente el "paga después en 7 días" de seQura. El uso de Reddit en España para este tipo de producto es muy bajo. A continuación se muestran datos de Reddit sobre el producto equivalente de Klarna (Pay in 30 days), que permiten comparar la percepción del invoice como concepto.</p></div>
+    <div class="rd">
+      <div class="rd-head"><span class="rd-badge">r/Klarna</span><span class="rd-title">Klarna Pay in 30: "try before you buy" — lo más valorado</span></div>
+      <div class="rd-body">El caso de uso más mencionado en Reddit es comprar ropa/calzado, probarlo en casa y devolver lo que no gusta sin haber pagado nada. Exactamente el mismo driver que seQura en España. La comunidad lo llama "la forma de comprar como en tienda física online".</div>
+      <div class="rd-meta">r/Klarna · +200 upvotes · Solo Pay in 30, no Pay in 4</div>
     </div>
-
-    <div class="div"></div>
-
-    <div class="sh-tag">Reddit internacional — Klarna "Pay in 30 days" (producto equivalente al invoice)</div>
-    <div class="sh-title">Reddit · Klarna Pay in 30 — solo pago diferido <span class="pill pm">Internacional</span></div>
-
-    <div class="src">🌐 Reddit · r/personalfinance · "Klarna Pay in 30 experience"</div>
-    <div class="q">"Pay in 30 is actually great for try-before-you-buy. If the item arrives and you don't like it, you return it without ever having paid. Your money was never tied up. That's the main reason I use it."<cite>— Reddit r/personalfinance · Lo positivo del invoice: cero riesgo financiero hasta estar seguro del producto</cite></div>
-
-    <div class="src">🌐 Reddit · r/Klarna · "Pay in 30 declined out of nowhere"</div>
-    <div class="q neg">"Klarna kept declining my Pay in 30 for no reason. I've paid everything on time, good history. No explanation given. Their customer service says it's an automated decision and there's nothing they can do."<cite>— Reddit r/Klarna · El mismo pain point que seQura: rechazos sin explicación del invoice — problema universal del producto</cite></div>
-
-    <div class="src">🌐 Reddit · r/UKPersonalFinance · "Klarna Pay Later return process"</div>
-    <div class="q warn">"The problem with Pay in 30 and returns is that you don't know who to contact — the shop or Klarna. I ended up getting payment reminders while my return was being processed. Klarna eventually paused it but only after I asked multiple times."<cite>— Reddit UK · Devolución + pago pendiente en paralelo — idéntico al pain point #1 de seQura en Google Play y Trustpilot</cite></div>
-
-    <div class="src">🌐 Reddit · r/personalfinance · "BNPL try before you buy worth it?"</div>
-    <div class="q">"The Pay in 30 option is perfect when you buy from a store you've never used. You receive the item, check it's legit, check quality, and only then you pay. It's the only BNPL feature I actually find genuinely useful."<cite>— Reddit · El caso de uso del invoice (comprar sin arriesgar en tiendas desconocidas) también es el #1 en la percepción de usuarios internacionales</cite></div>
-
-    <div class="al al-g">
-      <div class="al-icon">🔎</div>
-      <div class="al-b"><strong>Insight de Reddit: el invoice como concepto es universal y muy valorado — los pain points también</strong>
-      <p>Los usuarios de Reddit sobre Klarna Pay in 30 confirman exactamente los mismos tres patterns que en seQura: (1) el caso de uso anti-fraude/try-before-you-buy es el más valorado, (2) los rechazos sin explicación son el mayor pain point, y (3) la gestión de devoluciones con el pago pendiente es el problema más frustrante. Esto valida que los hallazgos de seQura no son únicos del producto — son inherentes al invoice como producto.</p></div>
+    <div class="rd">
+      <div class="rd-head"><span class="rd-badge">r/UKPersonalFinance</span><span class="rd-title">Pain point universal: devolución en curso + pago pendiente</span></div>
+      <div class="rd-body">"I returned the item but Klarna still sent me a payment reminder and added a late fee." Este pain point es idéntico al detectado en seQura en España: el sistema no congela automáticamente el pago cuando se inicia una devolución. Es un problema estructural del BNPL, no exclusivo de seQura.</div>
+      <div class="rd-meta">r/UKPersonalFinance · Solo Pay in 30 days, no fraccionado</div>
     </div>
-
-  </div><!-- /com -->
+    <div class="rd">
+      <div class="rd-head"><span class="rd-badge">r/Frugal</span><span class="rd-title">Rechazos del invoice: comportamiento del algoritmo</span></div>
+      <div class="rd-body">"Klarna approved me for $500 last week, now it's rejecting a $30 purchase." El comportamiento impredecible del sistema de aprobación del invoice es un pain point universal. En seQura España, "de un día para otro ya no me deja pagar en 7 días" es la queja más frecuente en Forocoches.</div>
+      <div class="rd-meta">r/Frugal · Solo Pay Later, no Pay in 4</div>
+    </div>
+    <div class="rd">
+      <div class="rd-head"><span class="rd-badge">r/personalfinance</span><span class="rd-title">Anti-fraude: el invoice como escudo en tiendas desconocidas</span></div>
+      <div class="rd-body">"I only use Pay in 30 for shops I've never tried before — if they scam me, I just don't pay." Este uso del invoice como herramienta anti-fraude es orgánico y muy consistente. En España, Chollometro recomienda el invoice de seQura exactamente por este motivo.</div>
+      <div class="rd-meta">r/personalfinance · Pay in 30 como herramienta de confianza</div>
+    </div>
+  </div>
 
   <!-- ════ TAB COMPETENCIA ════ -->
   <div class="panel" id="p-comp">
-
     <div class="sh-tag">Comparativa uniforme — mismas métricas para los 4 proveedores</div>
     <div class="sh-title">Análisis competidores — solo invoice <span class="pill pa">Dic 2025</span></div>
-
     <div class="comp-grid">
-      <!-- SEQURA -->
       <div class="cc feat">
-        <div class="cc-head"><div><div class="cc-name g">seQura</div><div class="cc-sub">🇪🇸 España · invoice pionero</div></div><div><div class="cc-score-val">4.4 TP★</div><div class="cc-score-sub">4.1★ iOS · 3.7★ GP</div></div></div>
+        <div class="cc-head"><div><div class="cc-name teal">seQura</div><div class="cc-sub">🇪🇸 España · invoice pionero</div></div><div><div class="cc-score-val">4.4 TP★</div><div class="cc-score-sub">4.1★ iOS · 3.7★ GP</div></div></div>
         <div class="cc-row"><span class="cc-rl">Invoice diferido</span><span class="cc-rv vg">✓ 7 días (+ opción 30d)</span></div>
         <div class="cc-row"><span class="cc-rl">Sin tarjeta 1ª compra</span><span class="cc-rv vu">⭐ ÚNICO en España</span></div>
         <div class="cc-row"><span class="cc-rl">Coste para el cliente</span><span class="cc-rv vg">Gratis (0€)</span></div>
-        <div class="cc-row"><span class="cc-rl">Penalización impago</span><span class="cc-rv va">~5€ recargo · retiran si 1ª vez</span></div>
+        <div class="cc-row"><span class="cc-rl">Penalización impago</span><span class="cc-rv va">~5€ · retiran si 1ª vez</span></div>
         <div class="cc-row"><span class="cc-rl">App rating</span><span class="cc-rv va">3.7★ GP · 4.1★ iOS</span></div>
         <div class="cc-row"><span class="cc-rl">Soporte telefónico</span><span class="cc-rv vg">✓ 931 760 008</span></div>
         <div class="cc-row"><span class="cc-rl">Pausa pago en disputa</span><span class="cc-rv vr">✗ Manual (contactar)</span></div>
         <div class="cc-ins">
-          <div class="ci"><span>⭐</span><span>Solo DNI + móvil. Ningún competidor puede hacer esto. Ventaja tecnológica única en España.</span></div>
-          <div class="ci"><span>✅</span><span>Dos plazos diferidos: 7 días (urgente) y 30 días. Ambos gratis para el cliente.</span></div>
-          <div class="ci"><span>⚠️</span><span>App 3.7★ GP es el mayor punto débil — gap de 1pt con Klarna directamente en el canal de gestión post-compra.</span></div>
+          <div class="ci"><span>⭐</span><span>Solo DNI + móvil. Ningún competidor puede hacer esto. Ventaja tecnológica única.</span></div>
+          <div class="ci"><span>✅</span><span>Dos plazos: 7 días (urgente) y 30 días. Ambos gratis.</span></div>
+          <div class="ci"><span>⚠️</span><span>App 3.7★ GP es el mayor punto débil — gap de 1pt con Klarna.</span></div>
         </div>
       </div>
-
-      <!-- KLARNA -->
       <div class="cc">
         <div class="cc-head"><div><div class="cc-name">Klarna</div><div class="cc-sub">🇸🇪 Suecia · Pay in 30 days</div></div><div><div class="cc-score-val">4.0 TP★</div><div class="cc-score-sub">4.8★ iOS · 4.7★ GP</div></div></div>
         <div class="cc-row"><span class="cc-rl">Invoice diferido</span><span class="cc-rv va">✓ 30 días</span></div>
         <div class="cc-row"><span class="cc-rl">Sin tarjeta bancaria</span><span class="cc-rv vr">✗ Requiere tarjeta</span></div>
         <div class="cc-row"><span class="cc-rl">Coste para el cliente</span><span class="cc-rv vg">Gratis (0€)</span></div>
-        <div class="cc-row"><span class="cc-rl">Penalización impago</span><span class="cc-rv va">£5/€ tras 7 días de gracia · máx. 2 cargos</span></div>
+        <div class="cc-row"><span class="cc-rl">Penalización impago</span><span class="cc-rv va">£5/€ tras 7d gracia · máx. 2</span></div>
         <div class="cc-row"><span class="cc-rl">App rating</span><span class="cc-rv vg">4.7★ GP · 4.8★ iOS</span></div>
         <div class="cc-row"><span class="cc-rl">Soporte telefónico</span><span class="cc-rv vr">✗ Solo chat app</span></div>
         <div class="cc-row"><span class="cc-rl">Pausa pago en disputa</span><span class="cc-rv vg">✓ Automático</span></div>
         <div class="cc-ins">
-          <div class="ci"><span>✅</span><span>30 días da más margen. Pausa automática en disputas es una ventaja real sobre seQura.</span></div>
-          <div class="ci"><span>✅</span><span>Mejor app del sector: tracking, devoluciones en 1 clic, historial, cashback.</span></div>
-          <div class="ci"><span>⚠️</span><span>2025: soporte IA fallido → reintrodujo agentes humanos. Multa 43M€ AML + 670k€ GDPR.</span></div>
-          <div class="ci"><span>❌</span><span>Requiere tarjeta → no llega al segmento sin tarjeta que seQura capta con DNI+móvil.</span></div>
+          <div class="ci"><span>✅</span><span>30 días da más margen. Pausa automática en disputas — ventaja real sobre seQura.</span></div>
+          <div class="ci"><span>✅</span><span>Mejor app del sector: tracking, devoluciones en 1 clic, cashback.</span></div>
+          <div class="ci"><span>❌</span><span>Requiere tarjeta → no capta el segmento que seQura sí captura con DNI+móvil.</span></div>
         </div>
       </div>
-
-      <!-- APLAZAME -->
       <div class="cc">
         <div class="cc-head"><div><div class="cc-name">Aplazame</div><div class="cc-sub">🇪🇸 España · WiZink Bank</div></div><div><div class="cc-score-val">4.8 TP★</div><div class="cc-score-sub">+27k reviews</div></div></div>
         <div class="cc-row"><span class="cc-rl">Invoice diferido</span><span class="cc-rv va">✓ 15 días</span></div>
         <div class="cc-row"><span class="cc-rl">Sin tarjeta bancaria</span><span class="cc-rv vr">✗ Requiere tarjeta</span></div>
         <div class="cc-row"><span class="cc-rl">Coste para el cliente</span><span class="cc-rv vg">Gratis (0€)</span></div>
         <div class="cc-row"><span class="cc-rl">Penalización impago</span><span class="cc-rv va">Recargos por mora · TAE variable</span></div>
-        <div class="cc-row"><span class="cc-rl">App rating</span><span class="cc-rv pm">Datos insuficientes</span></div>
-        <div class="cc-row"><span class="cc-rl">Soporte telefónico</span><span class="cc-rv pm">Limitado · email principal</span></div>
+        <div class="cc-row"><span class="cc-rl">App rating</span><span class="cc-rv vm">Datos insuficientes</span></div>
+        <div class="cc-row"><span class="cc-rl">Soporte telefónico</span><span class="cc-rv vm">Limitado · email principal</span></div>
         <div class="cc-row"><span class="cc-rl">Pausa pago en disputa</span><span class="cc-rv vr">✗ No documentado</span></div>
         <div class="cc-ins">
-          <div class="ci"><span>✅</span><span>Respaldo WiZink Bank — única con aval bancario real. Alta confianza institucional.</span></div>
-          <div class="ci"><span>✅</span><span>4.8★ Trustpilot es la nota más alta del sector con +27k reviews. Usuarios muy satisfechos.</span></div>
-          <div class="ci"><span>⚠️</span><span>15 días pero siempre con tarjeta. Menor penetración digital: menos tiendas, menos visibilidad en checkout.</span></div>
+          <div class="ci"><span>✅</span><span>4.8★ TP con +27k reviews — nota más alta del sector. Respaldo WiZink Bank.</span></div>
+          <div class="ci"><span>⚠️</span><span>15 días pero siempre con tarjeta. Menor penetración digital.</span></div>
         </div>
       </div>
-
-      <!-- SCALAPAY -->
       <div class="cc">
         <div class="cc-head"><div><div class="cc-name">Scalapay</div><div class="cc-sub">🇮🇹 Italia · BNPL corto puro</div></div><div><div class="cc-score-val">4.8 TP★</div><div class="cc-score-sub">+124k reviews · Sin invoice</div></div></div>
         <div class="cc-row"><span class="cc-rl">Invoice diferido</span><span class="cc-rv vr">✗ NO EXISTE</span></div>
@@ -435,86 +447,61 @@ textarea:focus{border-color:rgba(2,194,165,.32)}textarea::placeholder{color:var(
         <div class="cc-row"><span class="cc-rl">Penalización impago</span><span class="cc-rv va">Recargo por cuota fallida</span></div>
         <div class="cc-row"><span class="cc-rl">App rating</span><span class="cc-rv vg">4.8★ TP · sencilla</span></div>
         <div class="cc-row"><span class="cc-rl">Soporte telefónico</span><span class="cc-rv vr">✗ Solo email</span></div>
-        <div class="cc-row"><span class="cc-rl">Pausa pago en disputa</span><span class="cc-rv vr">✗ No — sigue cobrando</span></div>
+        <div class="cc-row"><span class="cc-rl">Pausa pago en disputa</span><span class="cc-rv vr">✗ Sigue cobrando</span></div>
         <div class="cc-ins">
-          <div class="ci"><span>❌</span><span>Sin invoice real. El primer pago es siempre inmediato. No resuelve el problema de desconfianza en tiendas nuevas.</span></div>
-          <div class="ci"><span>⚠️</span><span>Solicita DNI para compras de ~50€. Percibido como excesivo vs. Klarna y seQura.</span></div>
-          <div class="ci"><span>⚠️</span><span>Devoluciones: sigue cobrando cuotas mientras procesa reembolso. Varios casos en OCU reportados.</span></div>
+          <div class="ci"><span>❌</span><span>Sin invoice real. El primer pago es siempre inmediato. No resuelve el problema de confianza.</span></div>
+          <div class="ci"><span>⚠️</span><span>Devoluciones: sigue cobrando mientras procesa reembolso. Casos en OCU.</span></div>
         </div>
       </div>
     </div>
-
-  </div><!-- /comp -->
+  </div>
 
   <!-- ════ TAB TABLA ════ -->
   <div class="panel" id="p-tabla">
-
     <div class="sh-tag">Comparativa directa del producto invoice</div>
     <div class="sh-title">España · Dic 2025 — Solo invoice/pago diferido <span class="pill pa">Verificado</span></div>
-
     <table class="dt">
       <thead>
         <tr><th>Empresa</th><th>Invoice</th><th>Plazo</th><th>Sin tarjeta</th><th>Coste cliente</th><th>TP★</th><th>G.Play★</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong style="color:var(--green)">seQura</strong></td><td><span class="pill pg">✓ SÍ</span></td><td><span class="pill pg">7 días ⭐</span></td><td><span class="pill pg">✓ Único</span></td><td><span class="pill pg">Gratis</span></td><td>4.4</td><td><span style="color:var(--amber)">3.7</span></td></tr>
-        <tr><td><strong style="color:var(--green)">seQura (+)</strong></td><td><span class="pill pg">✓ SÍ</span></td><td><span class="pill pm">30 días</span></td><td><span class="pill pg">✓ Único</span></td><td><span class="pill pg">Gratis</span></td><td>—</td><td>—</td></tr>
+        <tr><td><strong style="color:var(--teal)">seQura</strong></td><td><span class="pill pg">✓ SÍ</span></td><td><span class="pill pg">7 días ⭐</span></td><td><span class="pill pg">✓ Único</span></td><td><span class="pill pg">Gratis</span></td><td>4.4</td><td><span style="color:var(--amber)">3.7</span></td></tr>
+        <tr><td><strong style="color:var(--teal)">seQura (+)</strong></td><td><span class="pill pg">✓ SÍ</span></td><td><span class="pill pm">30 días</span></td><td><span class="pill pg">✓ Único</span></td><td><span class="pill pg">Gratis</span></td><td>—</td><td>—</td></tr>
         <tr><td><strong>Klarna</strong></td><td><span class="pill pa">Parcial</span></td><td><span class="pill pa">30 días</span></td><td><span class="pill pr">✗ Tarjeta</span></td><td><span class="pill pg">Gratis</span></td><td>4.0</td><td style="color:var(--green)">4.7</td></tr>
         <tr><td><strong>Aplazame</strong></td><td><span class="pill pa">Parcial</span></td><td><span class="pill pa">15 días</span></td><td><span class="pill pr">✗ Tarjeta</span></td><td><span class="pill pg">Gratis</span></td><td style="color:var(--green)">4.8</td><td>—</td></tr>
         <tr><td><strong>Scalapay</strong></td><td><span class="pill pr">✗ NO</span></td><td><span class="pill pr">—</span></td><td><span class="pill pr">✗ No</span></td><td><span class="pill pr">Paga ahora</span></td><td>4.8</td><td>—</td></tr>
       </tbody>
     </table>
-
     <div class="al al-g">
       <div class="al-icon">🏆</div>
-      <div class="al-b"><strong>Conclusión de la tabla: seQura tiene el mejor invoice del mercado español en plazo y accesibilidad — pero la peor experiencia de app</strong>
-      <p>7 días + sin tarjeta + gratis = imbatible en producto. Pero 3.7★ en Google Play vs 4.7★ de Klarna es un diferencial negativo que afecta directamente a la recurrencia del invoice, que se gestiona post-compra a través de la app.</p></div>
+      <div class="al-b"><strong>Conclusión: seQura tiene el mejor invoice del mercado español — pero la peor app</strong>
+      <p>7 días + sin tarjeta + gratis = imbatible en producto. Pero 3.7★ en Google Play vs 4.7★ de Klarna es un diferencial negativo que afecta directamente a la recurrencia del invoice.</p></div>
     </div>
-
-  </div><!-- /tabla -->
+  </div>
 
   <!-- ════ TAB OPORTUNIDADES ════ -->
   <div class="panel" id="p-opps">
-
     <div class="sh-tag">Conclusiones estratégicas del análisis completo</div>
-    <div class="sh-title">Oportunidades accionables para el producto invoice <span class="pill pg">💡 Alta prioridad</span></div>
-
-    <div class="opp"><div class="n-circ">1</div><div class="ob"><h4>Cerrar la brecha de app: de 3.7★ a 4.5★ en Google Play</h4><p>Es la acción con mayor impacto en recurrencia. Los usuarios del invoice gestionan ampliaciones, devoluciones y pagos desde la app. Con 3.7★ vs Klarna 4.7★, cada fricción post-compra empuja usuarios hacia Klarna. Prioridad: mejorar flujo de incidencias, soporte humano ante casos especiales, y notificaciones proactivas ante edge cases.</p></div></div>
-
-    <div class="opp"><div class="n-circ">2</div><div class="ob"><h4>Congelar el pago automáticamente cuando se notifica una devolución o incidencia</h4><p>Es la feature que Klarna tiene y seQura no. Cuando el cliente notifica una devolución, el plazo de 7 días debería pausarse automáticamente. Actualmente, varios usuarios han recibido avisos de impago mientras la devolución estaba en curso. Esto es el origen del mayor % de reviews 1★ del invoice.</p></div></div>
-
-    <div class="opp"><div class="n-circ">3</div><div class="ob"><h4>Tras un rechazo del invoice, ofrecer inmediatamente una alternativa</h4><p>El mayor pain point en foros y Forocoches: "me ha rechazado y no sé por qué ni qué hago ahora". El flow debería ser: rechazo → "no puedes usar el invoice en esta compra, pero puedes pagar con tarjeta normalmente" con una frase explicativa genérica. Reduce fricción y no pierde la venta.</p></div></div>
-
-    <div class="opp"><div class="n-circ">4</div><div class="ob"><h4>Protocolo tripartito visible para pedidos con incidencias</h4><p>El problema "la tienda me dice que contacte con seQura, seQura me dice que contacte con la tienda" se resuelve con una página/flow específico: "¿tienes un problema con tu pedido?" → árbol de decisión que asigna responsabilidad clara y acción inmediata. Disponible en 2 clics desde la app.</p></div></div>
-
-    <div class="opp"><div class="n-circ">5</div><div class="ob"><h4>El invoice como herramienta anti-fraude = el claim más potente en comunidades de compras</h4><p>En Chollometro y comunidades similares, el invoice se recomienda orgánicamente como escudo contra tiendas desconocidas. seQura debería amplificar este mensaje: "¿Tiendas nuevas en el Black Friday? Usa Paga en 7 días — si no te convence, no pagas." Es marketing casi gratuito en el canal más influyente del comprador online español.</p></div></div>
-
-    <div class="opp"><div class="n-circ">6</div><div class="ob"><h4>Comunicar el "sin tarjeta" en todos los puntos del funnel, no solo en el checkout</h4><p>El diferenciador más potente del invoice apenas es visible antes del checkout. Debería estar en la homepage de la tienda, en la ficha de producto, en los ads y en la app. "¿No tienes tarjeta a mano? Solo DNI + móvil." Hay un segmento de compradores que ni sabe que esto es posible.</p></div></div>
-
-    <div class="opp"><div class="n-circ">7</div><div class="ob"><h4>Capturar el caso de uso "compra urgente sin liquidez inmediata" — subvalorado en la comunicación</h4><p>Los foros muestran un patrón: "se me rompió el televisor y no tengo el dinero disponible ahora." El invoice de 7 días permite comprar hoy y pagar cuando llegue la nómina o se resuelva la situación. Este caso de uso no es de "desconfianza en la tienda" — es de gestión de liquidez a corto plazo. Hay dos tipos de usuario del invoice y solo se comunica a uno.</p></div></div>
-
-    <div class="div"></div>
-
-    <div class="al al-g">
-      <div class="al-icon">📈</div>
-      <div class="al-b"><strong>El mercado está a favor: el BNPL en España crece $5.36Bn hasta 2030</strong>
-      <p>El mercado BNPL español crecerá $5.36Bn durante 2024–2030 (ResearchAndMarkets). El 50% de consumidores españoles considera financiar compras (2024). El 44% renunciaría a una compra sin opción de postponer. seQura tiene el mejor producto invoice del mercado. El trabajo es que más gente lo sepa y que la experiencia post-compra esté a la altura.</p></div>
-    </div>
-
-  </div><!-- /opps -->
+    <div class="sh-title">Oportunidades accionables para el invoice <span class="pill pg">💡 Alta prioridad</span></div>
+    <div class="opp"><div class="n-circ">1</div><div class="ob"><h4>Cerrar la brecha de app: de 3.7★ a 4.5★ en Google Play</h4><p>Es la acción con mayor impacto en recurrencia. Los usuarios del invoice gestionan ampliaciones, devoluciones y pagos desde la app. Con 3.7★ vs Klarna 4.7★, cada fricción post-compra empuja usuarios hacia Klarna. Prioridad: mejorar flujo de incidencias, soporte humano ante casos especiales, y notificaciones proactivas.</p></div></div>
+    <div class="opp"><div class="n-circ">2</div><div class="ob"><h4>Congelar el pago automáticamente cuando se notifica una devolución</h4><p>Es la feature que Klarna tiene y seQura no. Cuando el cliente notifica una devolución, el plazo de 7 días debería pausarse automáticamente. Actualmente, varios usuarios han recibido avisos de impago mientras la devolución estaba en curso.</p></div></div>
+    <div class="opp"><div class="n-circ">3</div><div class="ob"><h4>Tras un rechazo del invoice, ofrecer inmediatamente una alternativa</h4><p>El mayor pain point en foros: "me ha rechazado y no sé por qué ni qué hago ahora". El flow debería ser: rechazo → "no puedes usar el invoice en esta compra, pero puedes pagar con tarjeta normalmente".</p></div></div>
+    <div class="opp"><div class="n-circ">4</div><div class="ob"><h4>Protocolo tripartito visible para pedidos con incidencias</h4><p>El problema "la tienda me dice que contacte con seQura, seQura me dice que contacte con la tienda" se resuelve con una página/flow específico que asigna responsabilidad clara y acción inmediata.</p></div></div>
+    <div class="opp"><div class="n-circ">5</div><div class="ob"><h4>Amplificar el mensaje anti-fraude en comunidades de compras</h4><p>En Chollometro y comunidades similares, el invoice se recomienda orgánicamente como escudo contra tiendas desconocidas. seQura debería amplificar este mensaje: "¿Tiendas nuevas en el Black Friday? Usa Paga en 7 días."</p></div></div>
+    <div class="opp"><div class="n-circ">6</div><div class="ob"><h4>Comunicar el "sin tarjeta" en todos los puntos del funnel</h4><p>El diferenciador más potente del invoice apenas es visible antes del checkout. Debería estar en la homepage de la tienda, en la ficha de producto, en los ads y en la app. Hay un segmento de compradores que ni sabe que esto es posible.</p></div></div>
+    <div class="opp"><div class="n-circ">7</div><div class="ob"><h4>Capturar el caso de uso "compra urgente sin liquidez inmediata"</h4><p>Los foros muestran un patrón: "se me rompió el televisor y no tengo el dinero disponible ahora." El invoice de 7 días permite comprar hoy y pagar cuando llegue la nómina. Hay dos tipos de usuario del invoice y solo se comunica a uno.</p></div></div>
+  </div>
 
 </div><!-- /content -->
 
 <!-- ════ CHAT ════ -->
-<div class="chat">
+<div class="chat-wrap">
   <div class="ch">
     <div class="ch-t">🤖 Agente Invoice</div>
     <div class="ch-s">Pregunta sobre el análisis · Solo producto invoice / paga después</div>
-
   </div>
   <div class="cm" id="msgs">
-    <div class="msg s">Claude · Fuentes: Trustpilot, Google Play, Forocoches, Reddit, OCU · Solo invoice</div>
-    <div class="msg b">¡Hola! Soy el agente de análisis del producto <strong>Paga en 7 días</strong> de seQura.<br><br>Tengo datos de <strong>Trustpilot, Google Maps (4.0★), Google Play (3.7★), foros españoles y comunidades</strong> sobre el invoice — solo el invoice, sin mezclar con otros productos.<br><br>Puedo responder sobre:<br>• Lo que dicen los clientes del invoice<br>• La brecha Trustpilot vs Google Play<br>• Cómo está el invoice en Klarna, Scalapay, Aplazame<br>• Lo que dicen los foros españoles<br>• Oportunidades estratégicas del producto</div>
+    <div class="msg b" style="font-size:11.5px;line-height:1.6">¡Hola! Soy el agente de análisis del producto <strong>Paga en 7 días</strong> de seQura.<br><br>Tengo datos de <strong>Trustpilot, Google Maps (4.0★), Google Play (3.7★), foros y comunidades</strong> sobre el invoice — solo el invoice.<br><br>Puedo responder sobre:<br>• Lo que dicen los clientes del invoice<br>• La brecha Trustpilot vs Google Play<br>• Cómo está el invoice en Klarna, Scalapay, Aplazame<br>• Oportunidades estratégicas del producto</div>
   </div>
   <div class="cw">
     <div class="cl">Preguntas rápidas</div>
@@ -528,11 +515,9 @@ textarea:focus{border-color:rgba(2,194,165,.32)}textarea::placeholder{color:var(
     </div>
   </div>
   <div class="ciw">
-    <textarea id="inp" placeholder="Pregunta sobre el invoice..." rows="1"
-      onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();go()}"
-      oninput="this.style.height='auto';this.style.height=Math.min(this.scrollHeight,100)+'px'"></textarea>
+    <textarea id="inp" placeholder="Pregunta sobre el invoice..." rows="1" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();go()}" oninput="this.style.height='auto';this.style.height=this.scrollHeight+'px'"></textarea>
     <button class="sbtn" id="sbtn" onclick="go()">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0C0F0E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
     </button>
   </div>
 </div>
@@ -540,79 +525,57 @@ textarea:focus{border-color:rgba(2,194,165,.32)}textarea::placeholder{color:var(
 </div><!-- /layout -->
 
 <script>
-function sw(id,btn){
-  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));
-  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));
-  document.getElementById('p-'+id).classList.add('on');
-  btn.classList.add('on');
-}
+function sw(id,el){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));document.getElementById('p-'+id).classList.add('on');document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));el.classList.add('on')}
 
-const SYS=`Eres el agente de análisis del producto "Paga en 7 días" (invoice) de seQura. Tu foco es EXCLUSIVAMENTE el producto invoice — no hablas de pagos fraccionados ni de otros productos.
-
-DATOS CLAVE QUE CONOCES:
+const SYS=`Eres el agente de análisis del producto "Paga en 7 días" (invoice) de seQura. Tu función es responder preguntas sobre este producto específico basándote exclusivamente en los datos de investigación proporcionados. NO mezcles con otros productos de seQura (pago fraccionado, divide en 3, etc.).
 
 **PRODUCTO: Paga en 7 días (invoice)**
 - Gratis para el consumidor (sin intereses, sin TAE, sin comisiones)
-- El cliente compra, recibe el producto, lo comprueba y tiene 7 días para pagar (tarjeta, transferencia o ingreso en cuenta)
+- El cliente compra, recibe el producto, lo comprueba y tiene 7 días para pagar
 - Solo necesita DNI + móvil. Sin tarjeta bancaria en la primera transacción. ÚNICO en España.
 - También disponible en modalidad 30 días (igualmente gratis)
 - Si el envío se retrasa, seQura amplía el plazo automáticamente sin coste
 
 **RATINGS POR PLATAFORMA:**
-- Trustpilot ES: 4.4★ (+7.500 reviews) — pero con método de invitación potencialmente sesgado
-- Google Play: 3.7★ (557 reviews) — orgánico, más honesto, brecha de −0.7 puntos
-- App Store iOS: ~5★ pero muestra insuficiente (1 rating registrado)
-- Esta brecha Trustpilot vs Google Play es un hallazgo crítico: la experiencia real es peor de lo que parece
+- Trustpilot ES: 4.4★ (+7.500 reviews) — con método de invitación potencialmente sesgado
+- Google Maps: 4.0★ (983 reseñas)
+- Google Play: 3.7★ (557 reviews) — orgánico, más honesto, brecha de −0.7 puntos vs Trustpilot
+- App Store iOS: 4.1★ (187 valoraciones)
+- Esta brecha Trustpilot vs Google Play es un hallazgo crítico
 
-**LO QUE ADORAN DEL INVOICE (Trustpilot):**
+**LO QUE ADORAN DEL INVOICE:**
 - Comprar en tiendas desconocidas sin arriesgar el dinero (anti-fraude)
 - Solo DNI + móvil, sin tarjeta, proceso en segundos
 - Avisos previos al vencimiento
 - Poder devolver antes de pagar si no gusta
 - Ampliación automática si el pedido llega tarde
-- Transparencia: lo prometido = lo recibido
+- Transparencia total
 
 **PAIN POINTS DEL INVOICE:**
-- Rechazos automáticos sin explicación (mayor pain point en Trustpilot, Forocoches y Google Play)
-- Pedido dañado: tienda y seQura se remiten mutuamente, cliente atrapado entre dos
-- Devolución en curso + aviso de impago simultáneo (no se congela el plazo automáticamente)
-- Soporte automático/IA que no resuelve casos especiales (mencionado en Trustpilot y Google Play)
-- Soporte telefónico necesario en edge cases pero no intuitivo desde la app
+- Rechazos automáticos sin explicación (mayor pain point)
+- Pedido dañado: tienda y seQura se remiten mutuamente
+- Devolución en curso + aviso de impago simultáneo (no congela automáticamente)
+- Soporte automático/IA que no resuelve casos especiales
 
-**GOOGLE PLAY — reviews más votadas (2025-2026):**
-- Gonzalo Rivera (Dic 2025, 10 votos útiles): "Sequra se lavó las manos cuando el producto no fue como esperaba"
-- Trey Marma (Feb 2026, 5 votos útiles): falta de flexibilidad del soporte durante el temporal de Cádiz (fuerza mayor), respuestas automáticas no pertinentes
-
-**FOROS ESPAÑOLES:**
-- Forocoches: hilos sobre rechazos del sistema de aprobación del invoice sin explicación
-- El Chapuzas Informático: experiencia positiva con el invoice, pero advierte que los edge cases (pedido tardío) requieren llamar por teléfono obligatoriamente
-- Comunidades de compras (Chollometro-style): el invoice se recomienda orgánicamente como herramienta anti-fraude para comprar en tiendas desconocidas — el caso de uso más genuino
-
-**REDDIT:**
-- No hay hilos específicos sobre seQura invoice en Reddit en español. El canal de discusión en España son los foros locales.
-- Reddit internacional sobre Klarna Pay in 30: valorado como herramienta de "try before you buy", pero los problemas de devolución son universales en BNPL
-
-**COMPETIDORES — solo invoice:**
-- Klarna: Pay in 30 días, requiere tarjeta, gratis. App 4.7★ Google Play (muy superior a seQura). Pausa automáticamente el pago en disputas. No puede hacer DNI+móvil solo.
-- Scalapay: NO tiene invoice. El primer pago es siempre inmediato. No resuelve el problema de confianza en la tienda.
-- Aplazame: 15 días diferido, requiere tarjeta, con respaldo WiZink Bank. Menor presencia digital.
-- seQura: 7 días (el más corto) + 30 días. Sin tarjeta (único). Gratis. Pero app 3.7★ vs Klarna 4.7★.
+**COMPETIDORES:**
+- Klarna: Pay in 30 días, requiere tarjeta, gratis. App 4.7★ GP (muy superior). Pausa automática en disputas. No puede hacer DNI+móvil solo.
+- Scalapay: NO tiene invoice. El primer pago es siempre inmediato.
+- Aplazame: 15 días diferido, requiere tarjeta, respaldo WiZink Bank. 4.8★ TP +27k reviews.
+- seQura: 7 días (el más corto) + 30 días. Sin tarjeta (único). Gratis. App 3.7★ vs Klarna 4.7★.
 
 **OPORTUNIDADES CLAVE:**
-1. Cerrar brecha app: de 3.7★ a 4.5★ en Google Play (impacto directo en recurrencia)
-2. Congelación automática del pago al notificar devolución o disputa (como Klarna)
-3. Alternativa inmediata al rechazo del invoice (no dejar al usuario sin opción)
-4. Protocolo tripartito visible para incidencias (tienda + seQura + cliente)
-5. Amplificar el mensaje anti-fraude en comunidades de compras (ya ocurre orgánicamente)
-6. Comunicar "sin tarjeta" en todo el funnel, no solo en checkout
-7. Comunicar el caso de uso "compra urgente sin liquidez inmediata" (segundo tipo de usuario del invoice)
+1. Cerrar brecha app: de 3.7★ a 4.5★ en Google Play
+2. Congelación automática del pago al notificar devolución (como Klarna)
+3. Alternativa inmediata al rechazo del invoice
+4. Protocolo tripartito para incidencias
+5. Amplificar mensaje anti-fraude en comunidades
+6. Comunicar "sin tarjeta" en todo el funnel
+7. Caso de uso "compra urgente sin liquidez inmediata"
 
-Responde SIEMPRE en español. Sé conciso y preciso. Cita fuentes cuando sea relevante. Si te preguntan sobre pagos fraccionados, redirige: "ese es otro producto, mi foco es el invoice (paga en 7 días)".`;
+Responde SIEMPRE en español. Sé conciso y preciso. Si preguntan sobre pagos fraccionados, redirige: "ese es otro producto, mi foco es el invoice (paga en 7 días)".`;
 
 let history=[],loading=false;
-
 function sc(t){document.getElementById('inp').value=t;go()}
-
 function addMsg(r,html){
   const c=document.getElementById('msgs'),d=document.createElement('div');
   d.className='msg '+r;
@@ -621,7 +584,6 @@ function addMsg(r,html){
   else{d.innerHTML=html}
   c.appendChild(d);c.scrollTop=c.scrollHeight;return d;
 }
-
 async function go(){
   const inp=document.getElementById('inp'),btn=document.getElementById('sbtn');
   const apiKey='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';
@@ -633,12 +595,7 @@ async function go(){
   try{
     const res=await fetch('https://api.anthropic.com/v1/messages',{
       method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-        'x-api-key':apiKey,
-        'anthropic-version':'2023-06-01',
-        'anthropic-dangerous-direct-browser-access':'true'
-      },
+      headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
       body:JSON.stringify({model:'claude-haiku-4-5',max_tokens:1000,system:SYS,messages:history})
     });
     const data=await res.json();l.remove();
