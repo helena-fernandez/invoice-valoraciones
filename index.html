@@ -511,13 +511,13 @@ textarea:focus{border-color:rgba(2,194,165,.32)}textarea::placeholder{color:var(
     <div class="ch-t">🤖 Agente Invoice</div>
     <div class="ch-s">Pregunta sobre el análisis · Solo producto invoice / paga después</div>
     <div style="margin-top:10px">
-      <input id="apikey-inp" type="password" placeholder="API key de Anthropic (sk-ant-...)" style="width:100%;padding:7px 10px;background:#0C0F0E;border:1px solid rgba(2,194,165,.25);border-radius:7px;color:#E5EDEB;font-size:11px;font-family:'JetBrains Mono',monospace;outline:none" />
-      <div style="font-size:9px;color:#5C786F;margin-top:4px">Solo uso local · No se guarda ni envía a terceros</div>
+      <input id="apikey-inp" type="password" placeholder="Google AI Studio API key (AIza...)" style="width:100%;padding:7px 10px;background:#0C0F0E;border:1px solid rgba(2,194,165,.25);border-radius:7px;color:#E5EDEB;font-size:11px;font-family:'JetBrains Mono',monospace;outline:none" />
+      <div style="font-size:9px;color:#5C786F;margin-top:4px">Gratis en aistudio.google.com · Solo uso local · No se guarda</div>
     </div>
   </div>
   <div class="cm" id="msgs">
     <div class="msg s">Claude · Fuentes: Trustpilot, Google Play, Forocoches, Reddit, OCU · Solo invoice</div>
-    <div class="msg b">¡Hola! Soy el agente de análisis del producto <strong>Paga en 7 días</strong> de seQura.<br><br>Tengo datos de <strong>Trustpilot, Google Play (3.7★), foros españoles y comunidades</strong> sobre el invoice — solo el invoice, sin mezclar con otros productos.<br><br>Puedo responder sobre:<br>• Lo que dicen los clientes del invoice<br>• La brecha Trustpilot vs Google Play<br>• Cómo está el invoice en Klarna, Scalapay, Aplazame<br>• Lo que dicen los foros españoles<br>• Oportunidades estratégicas del producto</div>
+    <div class="msg b">¡Hola! Soy el agente de análisis del producto <strong>Paga en 7 días</strong> de seQura.<br><br>Tengo datos de <strong>Trustpilot, Google Maps (4.0★), Google Play (3.7★), foros españoles y comunidades</strong> sobre el invoice — solo el invoice, sin mezclar con otros productos.<br><br>Puedo responder sobre:<br>• Lo que dicen los clientes del invoice<br>• La brecha Trustpilot vs Google Play<br>• Cómo está el invoice en Klarna, Scalapay, Aplazame<br>• Lo que dicen los foros españoles<br>• Oportunidades estratégicas del producto</div>
   </div>
   <div class="cw">
     <div class="cl">Preguntas rápidas</div>
@@ -628,27 +628,27 @@ function addMsg(r,html){
 async function go(){
   const inp=document.getElementById('inp'),btn=document.getElementById('sbtn');
   const apiKey=(document.getElementById('apikey-inp')||{}).value||'';
-  if(!apiKey){addMsg('s','⚠️ Introduce tu API key de Anthropic arriba para usar el agente.');return;}
+  if(!apiKey){addMsg('s','⚠️ Introduce tu API key de Google AI Studio arriba. Es gratis en aistudio.google.com');return;}
   const text=inp.value.trim();
   if(!text||loading)return;
   loading=true;btn.disabled=true;inp.value='';inp.style.height='auto';
-  addMsg('u',text);history.push({role:'user',content:text});
+  addMsg('u',text);history.push({role:'user',parts:[{text}]});
   const l=addMsg('l','<span class="dots"><span>●</span><span>●</span><span>●</span></span>');
   try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
+    const body={
+      system_instruction:{parts:[{text:SYS}]},
+      contents:history
+    };
+    const res=await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key='+apiKey,{
       method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-        'x-api-key':apiKey,
-        'anthropic-version':'2023-06-01',
-        'anthropic-dangerous-direct-browser-access':'true'
-      },
-      body:JSON.stringify({model:'claude-sonnet-4-5-20251001',max_tokens:1000,system:SYS,messages:history})
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(body)
     });
     const data=await res.json();l.remove();
-    if(data.content?.[0]?.text){const r=data.content[0].text;addMsg('b',r);history.push({role:'assistant',content:r})}
-    else{const err=data.error?.message||'Sin respuesta';addMsg('s','Error: '+err)}
-  }catch(e){l.remove();addMsg('s','Error de red: '+e.message+'. Comprueba tu API key y conexión.')}
+    const r=data?.candidates?.[0]?.content?.parts?.[0]?.text;
+    if(r){addMsg('b',r);history.push({role:'model',parts:[{text:r}]})}
+    else{const err=data?.error?.message||'Sin respuesta';addMsg('s','Error: '+err)}
+  }catch(e){l.remove();addMsg('s','Error: '+e.message)}
   loading=false;btn.disabled=false;inp.focus();
 }
 </script>
