@@ -641,7 +641,7 @@ async function go(){
         'Content-Type':'application/json',
         'x-api-key':apiKey,
         'anthropic-version':'2023-06-01',
-        'anthropic-dangerous-request-source':'claude-artifact'
+        'anthropic-dangerous-direct-browser-access':'true'
       },
       body:JSON.stringify({model:'claude-sonnet-4-5-20251001',max_tokens:1000,system:SYS,messages:history})
     });
