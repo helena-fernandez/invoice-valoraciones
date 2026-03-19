@@ -510,10 +510,7 @@ textarea:focus{border-color:rgba(2,194,165,.32)}textarea::placeholder{color:var(
   <div class="ch">
     <div class="ch-t">🤖 Agente Invoice</div>
     <div class="ch-s">Pregunta sobre el análisis · Solo producto invoice / paga después</div>
-    <div style="margin-top:10px">
-      <input id="apikey-inp" type="password" placeholder="Anthropic API key (sk-ant-...)" style="width:100%;padding:7px 10px;background:#0C0F0E;border:1px solid rgba(2,194,165,.25);border-radius:7px;color:#E5EDEB;font-size:11px;font-family:'JetBrains Mono',monospace;outline:none" />
-      <div style="font-size:9px;color:#5C786F;margin-top:4px">console.anthropic.com · Solo uso local · No se guarda</div>
-    </div>
+
   </div>
   <div class="cm" id="msgs">
     <div class="msg s">Claude · Fuentes: Trustpilot, Google Play, Forocoches, Reddit, OCU · Solo invoice</div>
@@ -627,8 +624,7 @@ function addMsg(r,html){
 
 async function go(){
   const inp=document.getElementById('inp'),btn=document.getElementById('sbtn');
-  const apiKey=(document.getElementById('apikey-inp')||{}).value||'';
-  if(!apiKey){addMsg('s','⚠️ Introduce tu API key de Anthropic arriba. La encuentras en console.anthropic.com');return;}
+  const apiKey='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';
   const text=inp.value.trim();
   if(!text||loading)return;
   loading=true;btn.disabled=true;inp.value='';inp.style.height='auto';
