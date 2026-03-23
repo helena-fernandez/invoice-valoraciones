@@ -217,6 +217,33 @@ textarea::placeholder{color:var(--txt3)}
 .coming-soon .cs-title{font-size:20px;font-weight:800;color:var(--txt)}
 .coming-soon .cs-sub{font-size:13px;color:var(--txt3);max-width:360px;line-height:1.6}
 .coming-soon .cs-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:100px;padding:5px 14px;font-size:11px;font-weight:600;color:var(--amber)}
+/* ── REGULATORY ── */
+.reg-block{background:var(--card);border:1px solid var(--bdr);border-radius:14px;padding:22px;margin-bottom:16px;box-shadow:var(--shadow)}
+.reg-block.danger{border-left:4px solid var(--red);border-top:none}
+.reg-block.warning{border-left:4px solid var(--amber)}
+.reg-head{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.reg-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);border-radius:100px;padding:4px 12px;font-size:10px;font-weight:700;color:var(--red);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.06em}
+.reg-badge.amb{background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.2);color:var(--amber)}
+.reg-badge.ok{background:rgba(16,185,129,.1);border-color:rgba(16,185,129,.2);color:var(--green)}
+.reg-title{font-size:15px;font-weight:800;color:var(--txt)}
+.reg-sub{font-size:11.5px;color:var(--txt2);line-height:1.6;margin-bottom:16px}
+.tae-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
+.tae-card{background:var(--card2);border:1px solid var(--bdr);border-radius:10px;padding:14px 12px;text-align:center}
+.tae-card .tc-name{font-size:10px;font-family:'DM Mono',monospace;text-transform:uppercase;color:var(--txt3);margin-bottom:8px;letter-spacing:.06em}
+.tae-card .tc-val{font-size:20px;font-weight:800;line-height:1;margin-bottom:4px}
+.tae-card .tc-sub{font-size:10px;color:var(--txt3);line-height:1.4}
+.tae-card.danger-card{border-color:rgba(239,68,68,.25);background:rgba(239,68,68,.04)}
+.tae-card.warn-card2{border-color:rgba(245,158,11,.25);background:rgba(245,158,11,.04)}
+.tae-card.ok-card{border-color:rgba(16,185,129,.25);background:rgba(16,185,129,.04)}
+.reg-timeline{display:flex;gap:0;margin-top:16px;position:relative}
+.reg-timeline::before{content:'';position:absolute;top:12px;left:12px;right:12px;height:2px;background:var(--bdr);z-index:0}
+.rt-step{flex:1;position:relative;z-index:1;text-align:center}
+.rt-dot{width:24px;height:24px;border-radius:50%;border:2px solid var(--bdr);background:var(--card);display:flex;align-items:center;justify-content:center;font-size:10px;margin:0 auto 8px;font-weight:700}
+.rt-dot.done{background:var(--green);border-color:var(--green);color:#fff}
+.rt-dot.now{background:var(--amber);border-color:var(--amber);color:#fff}
+.rt-dot.warn{background:var(--red);border-color:var(--red);color:#fff}
+.rt-label{font-size:9.5px;font-family:'DM Mono',monospace;color:var(--txt3);line-height:1.4}
+.rt-label strong{display:block;color:var(--txt);font-size:10px}
 </style>
 </head>
 <body>
@@ -425,8 +452,58 @@ textarea::placeholder{color:var(--txt3)}
 
   <!-- ════ TAB COMPETENCIA ════ -->
   <div class="panel" id="p-comp">
+    <div class="reg-block danger">
+      <div class="reg-head">
+        <span class="reg-badge">⚠ Riesgo regulatorio</span>
+        <span class="reg-title">Directiva UE 2023/2225 — Aplicación: 20 nov 2026</span>
+      </div>
+      <div class="reg-sub">La nueva Directiva europea de crédito al consumo incluye explícitamente los productos BNPL. España aprobó el anteproyecto el 7 de enero de 2026. <strong>Fecha límite: 20 noviembre 2026.</strong> El modelo de <strong>coste fijo por cuota</strong> de seQura, al expresarse como TAE equivalente, puede superar los nuevos topes legales — impacto crítico sobre el pago fraccionado a plazos medios y largos.</div>
+      <div class="tae-grid">
+        <div class="tae-card danger-card">
+          <div class="tc-name">seQura fraccionado</div>
+          <div class="tc-val" style="color:var(--red)">~59%</div>
+          <div class="tc-sub">TAE equivalente real (3€/mes sobre 200€ a 6m). Modelo coste fijo — requiere rediseño urgente</div>
+        </div>
+        <div class="tae-card warn-card2">
+          <div class="tc-name">Klarna financiación</div>
+          <div class="tc-val" style="color:var(--amber)">~21.9%</div>
+          <div class="tc-sub">TAE variable. Ya diseñado para encajar con límites regulatorios</div>
+        </div>
+        <div class="tae-card warn-card2">
+          <div class="tc-name">Aplazame</div>
+          <div class="tc-val" style="color:var(--amber)">~19.9%</div>
+          <div class="tc-sub">TAE variable según perfil. Respaldo WiZink facilita adaptación</div>
+        </div>
+        <div class="tae-card ok-card">
+          <div class="tc-name">Tope legal nov 2026</div>
+          <div class="tc-val" style="color:var(--green)">22%</div>
+          <div class="tc-sub">Provisional para créditos ≤1.500€. Tramos mayores: 17% y 13% TAE</div>
+        </div>
+      </div>
+      <div class="al al-r" style="margin-bottom:10px;margin-top:14px">
+        <div class="al-icon">🚨</div>
+        <div class="al-b"><strong>Por qué impacta más a seQura que a la competencia</strong>
+        <p>Klarna y Aplazame operan con TAE variable — su adaptación es un ajuste de parámetros. seQura necesita rediseñar el modelo de pricing del fraccionado. El "Divide en 3" subsidiado por la tienda (0% TAE) no se ve afectado. El impacto recae en plazos de 6-18 meses. Quedan ~8 meses para actuar.</p></div>
+      </div>
+      <div class="al al-a" style="margin-bottom:0">
+        <div class="al-icon">📅</div>
+        <div class="al-b"><strong>Timeline regulatorio</strong>
+        <p>Nov 2025: plazo de transposición (España incumplió). · Ene 2026: Gobierno aprueba anteproyecto con tope provisional 22% TAE. · <strong>Nov 2026: aplicación obligatoria para todas las entidades BNPL.</strong></p></div>
+      </div>
+    </div>
+
     <div class="sh-tag">Comparativa uniforme — mismas métricas para los 4 proveedores</div>
-    <div class="sh-title">Análisis competidores — solo invoice <span class="pill pa">Dic 2025</span></div>
+    <div class="sh-title">Análisis competidores — invoice y fraccionado <span class="pill pa">Mar 2026</span></div>
+
+    <div class="al" style="background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.25);margin-bottom:20px">
+      <div class="al-icon">⚖️</div>
+      <div class="al-b">
+        <strong>Riesgo regulatorio crítico — Directiva (UE) 2023/2225 · Vigencia: 20 nov 2026</strong>
+        <p>La nueva Directiva Europea de Crédito al Consumo incluye explícitamente los productos BNPL en su ámbito. Desde noviembre de 2026, todos los operadores estarán obligados a expresar el coste como TAE y respetar un tope máximo. España aprobó el Anteproyecto de Ley el 7 de enero de 2026 — el límite se calculará sobre el tipo medio de crédito al consumo más un margen por tramos de importe.</p>
+        <p style="margin-top:8px;color:#8B5CF6;font-weight:600">Impacto en seQura: el modelo de "coste fijo por cuota" evita hoy mostrar la TAE real, que puede llegar al 59% en plazos de 6 meses. Con el nuevo marco, habrá que expresarla obligatoriamente y posiblemente limitarla — lo que puede forzar un cambio estructural en el modelo de precios del fraccionado.</p>
+      </div>
+    </div>
+
     <div class="comp-grid">
       <div class="cc feat">
         <div class="cc-head"><div><div class="cc-name teal">seQura</div><div class="cc-sub">🇪🇸 España · invoice pionero</div></div><div><div class="cc-score-val">4.4 TP★</div><div class="cc-score-sub">4.1★ iOS · 3.7★ GP</div></div></div>
@@ -434,6 +511,8 @@ textarea::placeholder{color:var(--txt3)}
         <div class="cc-row"><span class="cc-rl">Sin tarjeta 1ª compra</span><span class="cc-rv vu">⭐ ÚNICO en España</span></div>
         <div class="cc-row"><span class="cc-rl">Coste para el cliente</span><span class="cc-rv vg">Gratis (0€)</span></div>
         <div class="cc-row"><span class="cc-rl">Penalización impago</span><span class="cc-rv va">~5€ · retiran si 1ª vez</span></div>
+        <div class="cc-row"><span class="cc-rl">Modelo de coste</span><span class="cc-rv vu">Coste fijo/cuota · TAE oculta</span></div>
+        <div class="cc-row"><span class="cc-rl">TAE equivalente</span><span class="cc-rv vr">Hasta 59% en 6 meses · riesgo 2026</span></div>
         <div class="cc-row"><span class="cc-rl">App rating</span><span class="cc-rv va">3.7★ GP · 4.1★ iOS</span></div>
         <div class="cc-row"><span class="cc-rl">Soporte telefónico</span><span class="cc-rv vg">✓ 931 760 008</span></div>
         <div class="cc-row"><span class="cc-rl">Pausa pago en disputa</span><span class="cc-rv vr">✗ Manual (contactar)</span></div>
@@ -449,6 +528,8 @@ textarea::placeholder{color:var(--txt3)}
         <div class="cc-row"><span class="cc-rl">Sin tarjeta bancaria</span><span class="cc-rv vr">✗ Requiere tarjeta</span></div>
         <div class="cc-row"><span class="cc-rl">Coste para el cliente</span><span class="cc-rv vg">Gratis (0€)</span></div>
         <div class="cc-row"><span class="cc-rl">Penalización impago</span><span class="cc-rv va">£5/€ tras 7d gracia · máx. 2</span></div>
+        <div class="cc-row"><span class="cc-rl">Modelo de coste</span><span class="cc-rv vg">TAE variable según plazo/perfil</span></div>
+        <div class="cc-row"><span class="cc-rl">TAE equivalente</span><span class="cc-rv va">0% corto · hasta 21.9% largo plazo</span></div>
         <div class="cc-row"><span class="cc-rl">App rating</span><span class="cc-rv vg">4.7★ GP · 4.8★ iOS</span></div>
         <div class="cc-row"><span class="cc-rl">Soporte telefónico</span><span class="cc-rv vr">✗ Solo chat app</span></div>
         <div class="cc-row"><span class="cc-rl">Pausa pago en disputa</span><span class="cc-rv vg">✓ Automático</span></div>
@@ -464,6 +545,8 @@ textarea::placeholder{color:var(--txt3)}
         <div class="cc-row"><span class="cc-rl">Sin tarjeta bancaria</span><span class="cc-rv vr">✗ Requiere tarjeta</span></div>
         <div class="cc-row"><span class="cc-rl">Coste para el cliente</span><span class="cc-rv vg">Gratis (0€)</span></div>
         <div class="cc-row"><span class="cc-rl">Penalización impago</span><span class="cc-rv va">Recargos por mora · TAE variable</span></div>
+        <div class="cc-row"><span class="cc-rl">Modelo de coste</span><span class="cc-rv vg">TAE variable · ya regulado (WiZink)</span></div>
+        <div class="cc-row"><span class="cc-rl">TAE equivalente</span><span class="cc-rv va">0%–19.95% según plazo y perfil</span></div>
         <div class="cc-row"><span class="cc-rl">App rating</span><span class="cc-rv vm">Datos insuficientes</span></div>
         <div class="cc-row"><span class="cc-rl">Soporte telefónico</span><span class="cc-rv vm">Limitado · email principal</span></div>
         <div class="cc-row"><span class="cc-rl">Pausa pago en disputa</span><span class="cc-rv vr">✗ No documentado</span></div>
@@ -478,6 +561,8 @@ textarea::placeholder{color:var(--txt3)}
         <div class="cc-row"><span class="cc-rl">Sin tarjeta bancaria</span><span class="cc-rv vr">✗ No</span></div>
         <div class="cc-row"><span class="cc-rl">Coste para el cliente</span><span class="cc-rv vr">Paga parte en el momento</span></div>
         <div class="cc-row"><span class="cc-rl">Penalización impago</span><span class="cc-rv va">Recargo por cuota fallida</span></div>
+        <div class="cc-row"><span class="cc-rl">Modelo de coste</span><span class="cc-rv vg">0% TAE · sin intereses</span></div>
+        <div class="cc-row"><span class="cc-rl">TAE equivalente</span><span class="cc-rv vg">0% · sin largo plazo</span></div>
         <div class="cc-row"><span class="cc-rl">App rating</span><span class="cc-rv vg">4.8★ TP · sencilla</span></div>
         <div class="cc-row"><span class="cc-rl">Soporte telefónico</span><span class="cc-rv vr">✗ Solo email</span></div>
         <div class="cc-row"><span class="cc-rl">Pausa pago en disputa</span><span class="cc-rv vr">✗ Sigue cobrando</span></div>
