@@ -283,10 +283,25 @@ textarea::placeholder{color:var(--txt3)}
   </div>
 </div>
 
+<!-- PRODUCT SELECTOR -->
+<div class="prod-selector">
+  <button class="prod-btn active" onclick="switchProd('invoice',this)">
+    <div class="pb-label">Producto 01</div>
+    <div class="pb-name">Paga en <span>7 días</span></div>
+    <div class="pb-sub">Invoice · Compra ahora, paga después</div>
+  </button>
+  <button class="prod-btn" onclick="switchProd('fraccionado',this)">
+    <div class="pb-label">Producto 02</div>
+    <div class="pb-name">Pago <span>Fraccionado</span></div>
+    <div class="pb-sub">3, 6, 9, 12 cuotas · Análisis en curso</div>
+  </button>
+</div>
+
 <div class="layout">
 <div class="content">
 
-  <div class="tabs">
+  <div class="prod-panel active" id="prod-invoice">
+<div class="tabs">
     <button class="tab on"  onclick="sw('seq',this)">📊 seQura</button>
     <button class="tab"     onclick="sw('google',this)">⭐ Google & App</button>
     <button class="tab"     onclick="sw('com',this)">💬 Foros & Reddit</button>
@@ -509,16 +524,14 @@ textarea::placeholder{color:var(--txt3)}
     <div class="opp"><div class="n-circ">6</div><div class="ob"><h4>Comunicar el "sin tarjeta" en todos los puntos del funnel</h4><p>El diferenciador más potente del invoice apenas es visible antes del checkout. Debería estar en la homepage de la tienda, en la ficha de producto, en los ads y en la app. Hay un segmento de compradores que ni sabe que esto es posible.</p></div></div>
     <div class="opp"><div class="n-circ">7</div><div class="ob"><h4>Capturar el caso de uso "compra urgente sin liquidez inmediata"</h4><p>Los foros muestran un patrón: "se me rompió el televisor y no tengo el dinero disponible ahora." El invoice de 7 días permite comprar hoy y pagar cuando llegue la nómina. Hay dos tipos de usuario del invoice y solo se comunica a uno.</p></div></div>
   </div>
-
   </div><!-- /prod-invoice -->
 
-  <!-- PAGO FRACCIONADO PANEL -->
   <div class="prod-panel" id="prod-fraccionado">
     <div class="coming-soon">
       <div class="cs-icon">📊</div>
       <div class="cs-badge">Análisis en curso</div>
       <div class="cs-title">Pago Fraccionado</div>
-      <div class="cs-sub">Estamos recopilando datos de Trustpilot, Google Play, App Store, Reddit y comunidades sobre el producto de pago fraccionado (3, 6, 9, 12 cuotas). El análisis estará disponible próximamente.</div>
+      <div class="cs-sub">Estamos recopilando datos de Trustpilot, Google Play, App Store, Reddit y comunidades sobre el pago fraccionado (3, 6, 9, 12 cuotas). El análisis estará disponible próximamente.</div>
     </div>
   </div><!-- /prod-fraccionado -->
 
@@ -527,7 +540,7 @@ textarea::placeholder{color:var(--txt3)}
 <!-- ════ CHAT ════ -->
 <div class="chat-wrap">
   <div class="ch">
-    <div class="ch-t">🤖 Agente Invoice</div>
+    <div class="ch-t">🤖 HeleBot</div>
     <div class="ch-s">Pregunta sobre el análisis · Solo producto invoice / paga después</div>
   </div>
   <div class="cm" id="msgs">
@@ -545,12 +558,13 @@ textarea::placeholder{color:var(--txt3)}
     </div>
   </div>
   <div class="ciw">
-    <textarea id="inp" placeholder="Pregunta sobre el invoice..." rows="1" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();go()}" oninput="this.style.height='auto';this.style.height=this.scrollHeight+'px'"></textarea>
+    <textarea id="inp" placeholder="Pregunta a HeleBot..." rows="1" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();go()}" oninput="this.style.height='auto';this.style.height=this.scrollHeight+'px'"></textarea>
     <button class="sbtn" id="sbtn" onclick="go()">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
     </button>
   </div>
 </div>
+
 
 </div><!-- /layout -->
 
