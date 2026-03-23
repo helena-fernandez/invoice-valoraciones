@@ -883,6 +883,16 @@ function switchProd(id, el) {
   document.getElementById('prod-' + id).classList.add('active');
   document.querySelectorAll('.prod-btn').forEach(b => b.classList.remove('active'));
   el.classList.add('active');
+  // Reset chat history when switching product
+  history=[];
+  const msgs=document.getElementById('msgs');
+  msgs.innerHTML='';
+  const prodName = id==='fraccionado' ? 'Pago Fraccionado' : 'Paga en 7 días (Invoice)';
+  const d=document.createElement('div');
+  d.className='msg b';
+  d.style.fontSize='11.5px';d.style.lineHeight='1.6';
+  d.innerHTML='¡Hola! Ahora estoy en modo <strong>'+prodName+'</strong>. Pregúntame lo que quieras sobre este producto.';
+  msgs.appendChild(d);
 }
 function swf(id,el){
   document.querySelectorAll('#tabs-frac .tab').forEach(t=>t.classList.remove('on'));
@@ -896,65 +906,38 @@ function swf(id,el){
 }
 function sw(id,el){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));document.getElementById('p-'+id).classList.add('on');document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));el.classList.add('on')}
 
-const SYS=`Eres el agente de análisis del producto "Paga en 7 días" (invoice) de seQura. Tu función es responder preguntas sobre este producto específico basándote exclusivamente en los datos de investigación proporcionados. NO mezcles con otros productos de seQura (pago fraccionado, divide en 3, etc.).
+const SYS_INV=`Eres HeleBot, el agente de análisis del producto "Paga en 7 días" (invoice) de seQura. Responde SOLO sobre el invoice — pago diferido de 7 o 30 días, gratis, sin tarjeta.
 
-**PRODUCTO: Paga en 7 días (invoice)**
-- Gratis para el consumidor (sin intereses, sin TAE, sin comisiones)
-- El cliente compra, recibe el producto, lo comprueba y tiene 7 días para pagar
-- Solo necesita DNI + móvil. Sin tarjeta bancaria en la primera transacción. ÚNICO en España.
-- También disponible en modalidad 30 días (igualmente gratis)
-- Si el envío se retrasa, seQura amplía el plazo automáticamente sin coste
+**PRODUCTO INVOICE:**
+- Gratis (sin intereses, sin TAE, sin comisiones). Solo DNI + móvil. ÚNICO en España sin tarjeta.
+- 7 días desde el envío para pagar (también opción 30 días). Ampliación automática si el envío se retrasa.
+- Ratings: Trustpilot 4.4★, Google Maps 4.0★, Google Play 3.7★, App Store 4.1★.
+- Lo que adoran: anti-fraude en tiendas nuevas, sin tarjeta, avisos previos, devolver antes de pagar, transparencia.
+- Pain points: rechazos sin explicación, pedido dañado nadie se responsabiliza, devolución en curso + aviso impago, soporte automático falla.
+- Competencia: Klarna (30 días, requiere tarjeta, mejor app 4.7★), Aplazame (15 días, tarjeta, 4.8★ TP), Scalapay (NO tiene invoice).
+- Oportunidades: mejorar app a 4.5★, congelar pago en devolución, alternativa tras rechazo, protocolo tripartito, amplificar anti-fraude, comunicar "sin tarjeta".
 
-**RATINGS POR PLATAFORMA:**
-- Trustpilot ES: 4.4★ (+7.500 reviews) — con método de invitación potencialmente sesgado
-- Google Maps: 4.0★ (983 reseñas)
-- Google Play: 3.7★ (557 reviews) — orgánico, más honesto, brecha de −0.7 puntos vs Trustpilot
-- App Store iOS: 4.1★ (187 valoraciones)
-- Esta brecha Trustpilot vs Google Play es un hallazgo crítico
+Si preguntan sobre fraccionado, di: "Estás en el panel de Invoice. Cambia al panel de Pago Fraccionado para preguntar sobre ese producto."
+Responde siempre en español. Sé conciso.`;
 
-**LO QUE ADORAN DEL INVOICE:**
-- Comprar en tiendas desconocidas sin arriesgar el dinero (anti-fraude)
-- Solo DNI + móvil, sin tarjeta, proceso en segundos
-- Avisos previos al vencimiento
-- Poder devolver antes de pagar si no gusta
-- Ampliación automática si el pedido llega tarde
-- Transparencia total
+const SYS_FRAC=`Eres HeleBot, el agente de análisis del producto "Pago Fraccionado" de seQura. Responde SOLO sobre el fraccionado — Divide en 3 y Pago Fraccionado de 3 a 18 meses.
 
-**PAIN POINTS DEL INVOICE:**
-- Rechazos automáticos sin explicación (mayor pain point)
-- Pedido dañado: tienda y seQura se remiten mutuamente
-- Devolución en curso + aviso de impago simultáneo (no congela automáticamente)
-- Soporte automático/IA que no resuelve casos especiales
-
-**COMPETIDORES:**
-- Klarna: Pay in 30 días, requiere tarjeta, gratis. App 4.7★ GP (muy superior). Pausa automática en disputas. No puede hacer DNI+móvil solo.
-- Scalapay: NO tiene invoice. El primer pago es siempre inmediato.
-- Aplazame: 15 días diferido, requiere tarjeta, respaldo WiZink Bank. 4.8★ TP +27k reviews.
-- seQura: 7 días (el más corto) + 30 días. Sin tarjeta (único). Gratis. App 3.7★ vs Klarna 4.7★.
-
-**OPORTUNIDADES CLAVE:**
-1. Cerrar brecha app: de 3.7★ a 4.5★ en Google Play
-2. Congelación automática del pago al notificar devolución (como Klarna)
-3. Alternativa inmediata al rechazo del invoice
-4. Protocolo tripartito para incidencias
-5. Amplificar mensaje anti-fraude en comunidades
-6. Comunicar "sin tarjeta" en todo el funnel
-7. Caso de uso "compra urgente sin liquidez inmediata"
-
-Responde SIEMPRE en español. Sé conciso y preciso.
-
-Tienes datos de DOS productos de seQura:
-
-**PAGO FRACCIONADO (Divide en 3 y Fraccionado 3-18 meses):**
-- Divide en 3: gratis (0€) cuando la tienda subsidia, o 2.95% apertura si no. 3 cuotas iguales.
+**PRODUCTO FRACCIONADO:**
+- Divide en 3: 3 cuotas gratis (cuando la tienda subsidia) o con 2.95% apertura.
 - Pago Fraccionado: 4, 6, 12 o 18 meses con coste fijo por cuota (~3-5€/mes). TIN 0% pero TAE equivalente puede llegar al ~59% en 6 meses.
 - Solo tarjetas españolas. Requiere DNI + móvil + tarjeta. Mínimo 60€.
-- Diferenciador único: seguro de protección ante desempleo y hospitalización. Ningún competidor lo tiene.
-- Pain points: devoluciones con financiación activa (cobros durante el proceso), soporte automático, tarjetas solo españolas.
-- Riesgo crítico 2026: Directiva (UE) 2023/2225 obliga a declarar TAE y posible tope máximo desde 20 nov 2026. España aprobó Anteproyecto de Ley en enero 2026.
-- Competencia fraccionado: Klarna (4.4★ TP, TAE ya declarada, mejor app), Aplazame (4.8★ TP, también tiene seguro, hasta 36m), Scalapay (solo 3-4 cuotas, 0% TAE, inmune a regulación).
+- Diferenciador único: seguro de protección ante desempleo y hospitalización. Ningún competidor BNPL lo tiene.
+- Ratings: Trustpilot 4.4★, Google Maps 4.0★, Google Play 3.7★, App Store 4.1★ (globales de seQura).
+- Lo que adoran: acceso a compras grandes sin crédito bancario, flexibilidad real del plan, sin nómina, avisos previos, costes predecibles, seguro.
+- Pain points: devoluciones con financiación activa (cobros durante el proceso), soporte automático, solo tarjetas españolas, confusión coste fijo vs intereses.
+- RIESGO CRÍTICO 2026: Directiva (UE) 2023/2225 obliga a declarar TAE y posible tope máximo desde 20 nov 2026. España aprobó Anteproyecto de Ley en enero 2026. El modelo de coste fijo puede necesitar reestructurarse.
+- Competencia fraccionado: Klarna (4.4★ TP, 3 cuotas 0% + hasta 36 meses con interés, TAE ya declarada, mejor app 4.7★), Aplazame (4.8★ TP, 4 cuotas 0% + hasta 36 meses, también tiene seguro, TAE ya regulada), Scalapay (4.8★ TP, solo 3-4 cuotas, 0% TAE, inmune a regulación 2026).
+- Oportunidades: preparar transición TAE antes nov 2026, amplificar el seguro, resolver devoluciones con financiación activa, abrir a tarjetas internacionales, mejorar app.
 
-Si no sabes si la pregunta es sobre invoice o fraccionado, pregunta al usuario.`;
+Si preguntan sobre invoice, di: "Estás en el panel de Pago Fraccionado. Cambia al panel de Paga en 7 Días para preguntar sobre ese producto."
+Responde siempre en español. Sé conciso.`;
+
+const SYS=SYS_INV;
 
 let history=[],loading=false;
 function sc(t){document.getElementById('inp').value=t;go()}
@@ -969,20 +952,19 @@ function addMsg(r,html){
 async function go(){
   const inp=document.getElementById('inp'),btn=document.getElementById('sbtn');
   const apiKey='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';
-  // Detect active product to give HeleBot context
-  const activeProd = document.getElementById('prod-fraccionado') && document.getElementById('prod-fraccionado').classList.contains('active') ? 'fraccionado' : 'invoice';
-  const productCtx = activeProd === 'fraccionado' ? '\n\n[El usuario está viendo el panel de PAGO FRACCIONADO. Responde sobre ese producto.]' : '\n\n[El usuario está viendo el panel de PAGA EN 7 DÍAS (invoice). Responde sobre ese producto.]';
   const text=inp.value.trim();
   if(!text||loading)return;
   loading=true;btn.disabled=true;inp.value='';inp.style.height='auto';
-  const textWithCtx = history.length === 0 ? text + productCtx : text;
-  addMsg('u',text);history.push({role:'user',content:textWithCtx});
+  // Dynamic system prompt based on active product
+  const isFrac = document.getElementById('prod-fraccionado') && document.getElementById('prod-fraccionado').classList.contains('active');
+  const activeSYS = isFrac ? SYS_FRAC : SYS_INV;
+  addMsg('u',text);history.push({role:'user',content:text});
   const l=addMsg('l','<span class="dots"><span>●</span><span>●</span><span>●</span></span>');
   try{
     const res=await fetch('https://api.anthropic.com/v1/messages',{
       method:'POST',
       headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
-      body:JSON.stringify({model:'claude-haiku-4-5',max_tokens:1000,system:SYS,messages:history})
+      body:JSON.stringify({model:'claude-haiku-4-5',max_tokens:1000,system:activeSYS,messages:history})
     });
     const data=await res.json();l.remove();
     const r=data?.content?.[0]?.text;
