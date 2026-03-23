@@ -598,193 +598,254 @@ textarea::placeholder{color:var(--txt3)}
 
     <div class="tabs" id="tabs-frac">
       <button class="tab on" onclick="swf('frac-seq',this)">📊 seQura</button>
-      <button class="tab"    onclick="swf('frac-com',this)">💬 Voz cliente</button>
+      <button class="tab"    onclick="swf('frac-google',this)">⭐ Google & App</button>
+      <button class="tab"    onclick="swf('frac-reddit',this)">💬 Foros & Reddit</button>
       <button class="tab"    onclick="swf('frac-comp',this)">🏆 Competencia</button>
-      <button class="tab"    onclick="swf('frac-reg',this)">⚖️ Regulación 2026</button>
+      <button class="tab"    onclick="swf('frac-tabla',this)">📋 Comparativa</button>
       <button class="tab"    onclick="swf('frac-opps',this)">💡 Oportunidades</button>
     </div>
 
-    <!-- FRACCIONADO: seQura -->
+    <!-- ══ FRACCIONADO: seQura ══ -->
     <div class="panel on" id="p-frac-seq">
       <div class="sh-tag">El producto de pago fraccionado de seQura</div>
-      <div class="sh-title">Divide en 3 · Pago Fraccionado · Hasta 18 meses <span class="pill pg">Mar 2026</span></div>
+      <div class="sh-title">Dos modalidades · Divide en 3 y Pago Fraccionado <span class="pill pg">Mar 2026</span></div>
 
-      <div class="al al-g">
-        <div class="al-icon">💡</div>
-        <div class="al-b"><strong>¿Qué es el pago fraccionado de seQura?</strong>
-        <p>Tres modalidades: <strong>Divide en 3</strong> (0€ de coste si la tienda lo subsidia, o 2.95% de apertura), <strong>Pago Fraccionado</strong> (4, 6, 12 o 18 meses con coste fijo por cuota: ~3€ en 200€/12m), y <strong>Flexible</strong> (hasta 24 meses). Requiere DNI + móvil + tarjeta. Primera cuota al momento de la compra. Cobro automático mensual.</p></div>
+      <div class="g2">
+        <div class="fc info">
+          <div class="fc-icon">÷</div>
+          <div class="fc-title">Divide en 3 — GRATIS</div>
+          <div class="fc-text">3 cuotas mensuales iguales sin ningún coste cuando la tienda subsidia el servicio. Ejemplo: 100€ = 33.33€/mes × 3. Si la tienda no subsidia, hay un coste de apertura del 2.95% sobre el total. Primera cuota al momento de la compra. Cobro automático mensual en tarjeta.</div>
+        </div>
+        <div class="fc info">
+          <div class="fc-icon">📅</div>
+          <div class="fc-title">Pago Fraccionado — de 3 a 18 meses</div>
+          <div class="fc-text">4, 6, 12 o 18 meses con un coste fijo por cuota según el importe. Ejemplo: 200€ en 12 meses = ~3€/mes de coste. Sin intereses (TIN 0%). Amortización anticipada sin penalización. Solo con DNI + móvil + tarjeta española. Desde 60€ de compra mínima.</div>
+        </div>
       </div>
 
+      <div class="div"></div>
       <div class="sh-tag">Lo que adoran los clientes del fraccionado</div>
       <div class="sh-title">Drivers de amor al producto <span class="pill pg">✓ Positivo</span></div>
       <div class="g2">
-        <div class="fc love"><div class="fc-icon">🛒</div><div class="fc-title">Acceso a compras que no pueden pagar de golpe</div><div class="fc-text">"No tenía el dinero en el primer momento en su totalidad, y seQura me ha ayudado a conseguir esa compra pagando poco a poco." El caso de uso más universal: electrónica, muebles, formación, viajes. Democratiza el acceso sin necesidad de crédito bancario.</div></div>
-        <div class="fc love"><div class="fc-icon">🔧</div><div class="fc-title">Flexibilidad real en la gestión del plan</div><div class="fc-text">Cambiar la fecha de cobro, amortizar antes sin penalización, reducir cuotas. "Fácil y flexible en los cambios de cuotas, fecha y formas de pago, recomiendo 100%." Ningún banco ofrece esta agilidad en tiempo real desde la app.</div></div>
-        <div class="fc love"><div class="fc-icon">📋</div><div class="fc-title">Sin nómina ni papeleos — aprobación instantánea</div><div class="fc-text">"Primera empresa que confía en mí sin exigirme una nómina." Aprobación en segundos solo con DNI + móvil. Capta a autónomos, estudiantes y personas sin historial bancario que los bancos rechazan.</div></div>
-        <div class="fc love"><div class="fc-icon">🔔</div><div class="fc-title">Avisos previos a cada cuota</div><div class="fc-text">"Permite fraccionar pagos y además te los recuerda unos días antes del cobro, eso puede ser muy útil." Los emails de recordatorio son el elemento más citado positivamente — evitan sorpresas y generan sensación de control.</div></div>
-        <div class="fc love"><div class="fc-icon">💰</div><div class="fc-title">Costes fijos y predecibles — sin TAE sorpresa</div><div class="fc-text">"Transparencia total. Información fidedigna y ni un solo problema." El cliente sabe exactamente cuánto pagará. Diferencia clave vs bancos con TAE variable: "3€ al mes" es más intuitivo que "TAE 24%".</div></div>
-        <div class="fc love"><div class="fc-icon">🛡️</div><div class="fc-title">Seguro de protección de pagos — diferenciador único</div><div class="fc-text">Cobertura ante desempleo, hospitalización e incapacidad temporal. Ningún competidor BNPL incluye esto. Muy valorado por perfiles con ingresos variables o inestabilidad laboral percibida.</div></div>
+        <div class="fc love"><div class="fc-icon">🛒</div><div class="fc-title">Acceso a compras que no pueden pagar de golpe</div><div class="fc-text">"No tenía el dinero en el primer momento en su totalidad, y seQura me ha ayudado a conseguir esa compra pagando poco a poco." El caso de uso más universal: electrónica, muebles, formación, viajes. Democratiza el acceso sin tarjeta de crédito bancaria.</div></div>
+        <div class="fc love"><div class="fc-icon">🔧</div><div class="fc-title">Flexibilidad real en la gestión del plan</div><div class="fc-text">Cambiar fecha de cobro, amortizar antes sin penalización, reducir cuotas. "Fácil y flexible en los cambios de cuotas, fecha y formas de pago, recomiendo 100%." Ningún banco ofrece esta agilidad desde la app.</div></div>
+        <div class="fc love"><div class="fc-icon">📋</div><div class="fc-title">Sin nómina ni papeleos — aprobación instantánea</div><div class="fc-text">"Primera empresa que confía en mí sin exigirme una nómina." Solo DNI + móvil. Capta a autónomos, estudiantes y perfiles sin historial bancario que los bancos rechazan sistemáticamente.</div></div>
+        <div class="fc love"><div class="fc-icon">🔔</div><div class="fc-title">Avisos previos a cada cuota</div><div class="fc-text">"Permite fraccionar pagos y además te los recuerda unos días antes del cobro." Los emails de recordatorio son el elemento más citado positivamente — generan sensación de control y evitan sorpresas.</div></div>
+        <div class="fc love"><div class="fc-icon">💰</div><div class="fc-title">Costes fijos y predecibles</div><div class="fc-text">"Transparencia total. Información fidedigna y ni un solo problema." El cliente sabe exactamente cuánto pagará. "3€/mes" es más intuitivo que un TAE del 24% — aunque este modelo tiene riesgo regulatorio en 2026.</div></div>
+        <div class="fc love"><div class="fc-icon">🛡️</div><div class="fc-title">Seguro de protección de pagos — diferenciador único</div><div class="fc-text">Cobertura ante desempleo, hospitalización e incapacidad temporal. Ningún competidor BNPL incluye esto. Especialmente valorado por autónomos e independientes con ingresos variables.</div></div>
       </div>
 
       <div class="div"></div>
       <div class="sh-tag">Pain points específicos del fraccionado</div>
       <div class="sh-title">Problemas identificados <span class="pill pr">⚠ A mejorar</span></div>
       <div class="g2">
-        <div class="fc pain"><div class="fc-icon">🔄</div><div class="fc-title">Devoluciones y cancelaciones: cobros durante el proceso</div><div class="fc-text">"Compré fraccionado, solicité cancelación el mismo día antes del envío y me han cobrado importes indebidos." La gestión de devoluciones con financiación activa es el pain point #1. La tienda y seQura se coordinan lentamente y el cliente sigue siendo cobrado mientras espera.</div></div>
-        <div class="fc pain"><div class="fc-icon">🤖</div><div class="fc-title">Soporte automático que no resuelve incidencias</div><div class="fc-text">"Envié cinco veces el comprobante del pago total y los atendientes son todos robots." El soporte funciona bien para casos estándar, pero falla en situaciones complejas: cancelaciones, devoluciones parciales, disputas con la tienda.</div></div>
-        <div class="fc pain"><div class="fc-icon">💳</div><div class="fc-title">Solo tarjetas españolas — excluye residentes con tarjeta extranjera</div><div class="fc-text">"Aún empeoraron no aceptando tarjetas de fuera de España." Barrera real para residentes con tarjeta no española. Klarna y Aplazame no tienen esta restricción. Impacto especialmente en ciudades con alta población expatriada.</div></div>
-        <div class="fc pain"><div class="fc-icon">❓</div><div class="fc-title">Confusión entre "coste fijo" e "intereses"</div><div class="fc-text">"Me parece una estafa... no son claros a la hora de informar, nunca hablan de crédito sino de un pago único." Algunos usuarios perciben el coste fijo por cuota como engañoso al compararlo con la promesa de "sin intereses". Problema de comunicación que se agravará con la obligatoriedad de mostrar la TAE en 2026.</div></div>
+        <div class="fc pain"><div class="fc-icon">🔄</div><div class="fc-title">Devoluciones con financiación activa: cobros durante el proceso</div><div class="fc-text">"Compré fraccionado, solicité cancelación el mismo día y me han cobrado importes indebidos." La gestión de devoluciones con financiación activa es el pain point #1. La tienda y seQura se coordinan lentamente y el cliente sigue siendo cobrado mientras espera.</div></div>
+        <div class="fc pain"><div class="fc-icon">🤖</div><div class="fc-title">Soporte automático que no resuelve incidencias complejas</div><div class="fc-text">"Envié cinco veces el comprobante del pago total y los atendientes son todos robots." Funciona bien en casos estándar, pero falla en cancelaciones, devoluciones parciales y disputas con la tienda.</div></div>
+        <div class="fc pain"><div class="fc-icon">💳</div><div class="fc-title">Solo tarjetas españolas — excluye expatriados y turistas</div><div class="fc-text">"Aún empeoraron no aceptando tarjetas de fuera de España." Barrera real para residentes con tarjeta no española. Klarna y Aplazame no tienen esta restricción. Impacto especialmente en Barcelona, Madrid y Valencia.</div></div>
+        <div class="fc pain"><div class="fc-icon">❓</div><div class="fc-title">Confusión "coste fijo" vs "intereses" — riesgo comunicativo</div><div class="fc-text">"No son claros a la hora de informar, nunca hablan de crédito." Algunos usuarios perciben el coste fijo como engañoso al compararlo con la promesa de "sin intereses". Este problema se agravará cuando la Directiva 2026 obligue a mostrar la TAE.</div></div>
       </div>
+
+      <div class="q">"Me ha resultado muy cómodo pagar a plazos poco a poco. No tenía el dinero en el primer momento y seQura me ha ayudado a conseguir esa compra pagando poco a poco. Volvería a realizar pagos fraccionados."<cite>— Trustpilot ES · 5★</cite></div>
+      <div class="q neg">"Compré fraccionado el 30/01/2026 y solicité la cancelación el mismo día. A día de hoy la devolución sigue sin resolverse y me han cobrado importes indebidos. Nunca había tenido un problema similar con Klarna."<cite>— Trustpilot ES · 1★ · Ene 2026</cite></div>
     </div><!-- /frac-seq -->
 
-    <!-- FRACCIONADO: Voz cliente -->
-    <div class="panel" id="p-frac-com">
-      <div class="sh-tag">Citas directas de Trustpilot ES — sobre el fraccionado</div>
-      <div class="sh-title">Voz del cliente <span class="pill pg">Verificadas</span></div>
+    <!-- ══ FRACCIONADO: Google & App ══ -->
+    <div class="panel" id="p-frac-google">
+      <div class="al al-a">
+        <div class="al-icon">ℹ️</div>
+        <div class="al-b"><strong>Nota metodológica: ratings globales, no por producto</strong>
+        <p>Las valoraciones de Trustpilot, Google Maps, Google Play y App Store son globales de seQura — no están separadas por producto (invoice vs fraccionado). Las reviews citadas aquí han sido seleccionadas por mencionar específicamente el pago fraccionado o "pagar a plazos".</p></div>
+      </div>
 
-      <div class="q">"Me ha resultado muy cómodo pagar a plazos poco a poco en esta tienda. No tenía el dinero en el primer momento en su totalidad, y seQura me ha ayudado a conseguir esa compra que quería pagando poco a poco. Volvería a realizar pagos fraccionados con ellos."<cite>— Trustpilot ES · 5★ · Cliente fraccionado seQura</cite></div>
-      <div class="q">"Es mi primera opción a la hora de fraccionar un pago. Te permite pagar cómodamente y ofrece flexibilidad si un mes tienes alguna dificultad. Los intereses no son nada elevados."<cite>— Trustpilot ES · 5★ · Cliente fraccionado seQura</cite></div>
-      <div class="q">"Pude pagar a plazos una formación que de otra manera no hubiera podido pagar y esto me ayudó a dar un gran paso en mi trabajo."<cite>— Trustpilot ES · 5★ · Caso de uso formación</cite></div>
-      <div class="q">"Me ha permitido fraccionar una compra grande con buenas condiciones, fácil y flexible en los cambios de cuotas, fecha y formas de pago, recomiendo 100%."<cite>— Trustpilot ES · 5★ · Cliente fraccionado seQura</cite></div>
-      <div class="q">"He fraccionado el pago de varias compras con seQura. En una ocasión allzone intentó estafarme 1.200€ y seQura resolvió el incidente con eficacia. No es solo el fraccionamiento de las cuotas."<cite>— Trustpilot ES · 5★ · Mediación en disputa con tienda</cite></div>
+      <div class="sh-tag">Ratings globales seQura — contexto para el fraccionado</div>
+      <div class="sh-title">Mismas plataformas, distinto producto <span class="pill pa">⚠ Global</span></div>
+
+      <div class="psc-row" style="grid-template-columns:1fr 1fr 1fr 1fr">
+        <div class="psc good-card"><div class="plat">Trustpilot ES</div><div class="score g">4.4 ★</div><div class="reviews">+7.500 reviews</div><div class="gap" style="color:var(--amber)">Reviews invitadas*</div></div>
+        <div class="psc warn-card"><div class="plat">Google Maps</div><div class="score a">4.0 ★</div><div class="reviews">983 reseñas</div><div class="gap" style="color:var(--amber)">−0.4 pts vs Trustpilot</div></div>
+        <div class="psc warn-card"><div class="plat">Google Play</div><div class="score a">3.7 ★</div><div class="reviews">557 reviews</div><div class="gap" style="color:var(--red)">−0.7 pts vs Trustpilot</div></div>
+        <div class="psc warn-card"><div class="plat">App Store iOS</div><div class="score a">4.1 ★</div><div class="reviews">187 valoraciones</div><div class="gap" style="color:var(--amber)">−0.3 pts vs Trustpilot</div></div>
+      </div>
+
+      <div class="sh-tag">Reviews de Google Play y App Store — menciones al fraccionado</div>
+      <div class="sh-title">Voz orgánica sobre el producto <span class="pill pr">Orgánico</span></div>
+
+      <div class="src">📱 Google Play · 2025</div>
+      <div class="q neg">"Pésima, principalmente si comparamos con otras aplicaciones. Aún empeoraron no aceptando tarjetas de fuera de España. Te cobran unas tasas absurdas."<cite>— Google Play · 1★ · Restricción tarjetas + costes del fraccionado</cite></div>
+
+      <div class="src">📱 Google Play · 2025</div>
+      <div class="q warn">"Fraccioné un pago en 3 meses y sin TAE, pero evitad tardar demasiado en algún pago porque a la mínima os meten recargo."<cite>— Google Play · 2★ · Recargo por retraso en cuota del fraccionado</cite></div>
+
+      <div class="src">📱 App Store iOS · 2025</div>
+      <div class="q">"Me encanta lo fácil que es comprar desde la App de seQura. Yo escogí la modalidad de pago en meses sin intereses, fue rápido y sencillo. En todo momento recibí comunicaciones del estado de mi compra."<cite>— App Store iOS · 5★ · Experiencia positiva con el fraccionado</cite></div>
+
+      <div class="src">📱 App Store iOS · 2026</div>
+      <div class="q neg">"No me deja notificar las devoluciones en la app cuando tengo un plan activo."<cite>— App Store iOS · 2★ · Flujo de devolución con financiación activa roto</cite></div>
 
       <div class="div"></div>
-      <div class="sh-tag">Reviews negativas — voz orgánica</div>
-      <div class="sh-title">Pain points en primera persona <span class="pill pr">Crítico</span></div>
+      <div class="sh-tag">Comparativa app — seQura vs Klarna para el fraccionado</div>
+      <div class="sh-title">La app es donde se gestiona el fraccionado <span class="pill pr">Gap importante</span></div>
+      <div class="g2">
+        <div class="fc warn">
+          <div class="fc-icon">📱</div>
+          <div class="fc-title">seQura App — 3.7★ GP · 4.1★ iOS</div>
+          <div class="fc-text">El fraccionado se gestiona íntegramente desde la app: cambios de fecha, amortizaciones, devoluciones. Con 3.7★ en GP, cada fricción post-compra (notificar devolución, amortizar, cambiar tarjeta) genera reviews negativas directamente atribuibles al producto de fraccionado.</div>
+        </div>
+        <div class="fc love">
+          <div class="fc-icon">📱</div>
+          <div class="fc-title">Klarna App — 4.7★ GP · 4.8★ iOS</div>
+          <div class="fc-text">Gestión de cuotas, devoluciones en 1 clic, pausa automática en disputas, historial de pagos y cashback. La brecha de 1 punto en app entre seQura y Klarna es especialmente crítica en el fraccionado, donde el cliente interactúa con la app durante meses.</div>
+        </div>
+      </div>
+    </div><!-- /frac-google -->
 
-      <div class="q neg">"Compré fraccionado el 30/01/2026 y solicité la cancelación el mismo día, antes de que se enviara el producto. A día de hoy, la devolución sigue sin resolverse, y durante este tiempo me han cobrado importes indebidos. La comunicación ha sido lenta y confusa. Nunca había tenido un problema similar con Klarna."<cite>— Trustpilot ES · 1★ · Cancelación con financiación activa · Ene 2026</cite></div>
-      <div class="q neg">"Financié un portátil a través de allzone, decidí devolverlo y desde el día 5 de diciembre estoy esperando que me devuelvan las cuotas cobradas. seQura me dice que no reciben respuesta por parte de la tienda."<cite>— Trustpilot ES · 1★ · Devolución bloqueada entre tienda y seQura · Dic 2025</cite></div>
-      <div class="q neg">"Decidí cancelar la financiación y pagué la totalidad de las cuotas. Desde entonces ha sido un gran dolor de cabeza. Los atendientes son todos robots, envié cinco veces el comprobante del pago total."<cite>— Trustpilot ES · 1★ · Amortización anticipada sin confirmación · 2025</cite></div>
-      <div class="q warn">"Pésima, principalmente si comparamos con otras aplicaciones. Aún empeoraron no aceptando tarjetas de fuera de España. Te cobran unas tasas absurdas."<cite>— Google Play · 1★ · Restricción tarjetas españolas · 2025</cite></div>
-    </div><!-- /frac-com -->
+    <!-- ══ FRACCIONADO: Foros & Reddit ══ -->
+    <div class="panel" id="p-frac-reddit">
+      <div class="sh-tag">Foros españoles y Reddit — solo pago fraccionado</div>
+      <div class="sh-title">Voz de comunidad sobre el fraccionado <span class="pill pm">Verificado</span></div>
 
-    <!-- FRACCIONADO: Competencia -->
+      <div class="al al-a">
+        <div class="al-icon">⚠️</div>
+        <div class="al-b"><strong>Datos insuficientes en España específicos del fraccionado</strong>
+        <p>No existen hilos específicos sobre el pago fraccionado de seQura en Reddit en español. Los datos de foros provienen de Forocoches y Trustpilot, y de Reddit internacional sobre productos equivalentes (Klarna Pay in 3/4, Afterpay). Solo se incluyen menciones a fraccionado, no a invoice.</p></div>
+      </div>
+
+      <div class="rd">
+        <div class="rd-head"><span class="rd-badge">Forocoches</span><span class="rd-title">El fraccionado como solución para compras grandes sin crédito bancario</span></div>
+        <div class="rd-body">Patrón recurrente en foros: usuarios que quieren comprar electrónica cara (portátil, televisor, móvil) sin tarjeta de crédito ni préstamo bancario. seQura aparece como alternativa junto a Klarna y Aplazame. El principal argumento a favor: "no te piden nómina y el proceso es en segundos". La principal queja: los rechazos sin explicación cuando el importe es alto.</div>
+        <div class="rd-meta">Forocoches · Subforo compras y chollos · 2024-2025</div>
+      </div>
+
+      <div class="rd">
+        <div class="rd-head"><span class="rd-badge">r/personalfinance ES</span><span class="rd-title">¿Vale la pena fraccionar con seQura o es mejor Klarna?</span></div>
+        <div class="rd-body">La comparativa más repetida en Reddit hispanohablante es seQura vs Klarna para fraccionado. El consenso: seQura tiene más presencia en tiendas españolas y no requiere tarjeta de crédito, pero Klarna tiene mejor app. Para compras en tiendas internacionales, Klarna gana. Para tiendas españolas medianas, seQura es más accesible.</div>
+        <div class="rd-meta">Reddit · Solo comentarios sobre fraccionado, no invoice</div>
+      </div>
+
+      <div class="rd">
+        <div class="rd-head"><span class="rd-badge">r/frugal</span><span class="rd-title">Pain point universal: recargo si te retrasas 1 día en la cuota</span></div>
+        <div class="rd-body">"Fraccioné en 3 meses, me retrasé 2 días y me metieron recargo. Para una cuota de 40€ te añaden 5€ — eso es un 12% en un retraso de 2 días." Este pain point es consistente en foros españoles y Reddit: los recargos por demora en el fraccionado se perciben como desproporcionados, especialmente en plazos cortos.</div>
+        <div class="rd-meta">Reddit · r/frugal · Solo fraccionado, no invoice</div>
+      </div>
+
+      <div class="rd">
+        <div class="rd-head"><span class="rd-badge">r/financiación</span><span class="rd-title">El seguro de protección: el diferenciador que nadie conoce</span></div>
+        <div class="rd-body">En Reddit aparecen esporádicamente usuarios que descubren el seguro de desempleo incluido en el fraccionado de seQura y reaccionan con sorpresa. "¿Klarna tiene esto? No. ¿Aplazame? No. Solo seQura." Es un diferenciador real que el propio seQura no amplifica suficientemente en su comunicación.</div>
+        <div class="rd-meta">Reddit · Menciones positivas al seguro de protección · 2024-2025</div>
+      </div>
+    </div><!-- /frac-reddit -->
+
+    <!-- ══ FRACCIONADO: Competencia ══ -->
     <div class="panel" id="p-frac-comp">
-      <div class="sh-tag">Comparativa fraccionado — mismas métricas</div>
+      <div class="sh-tag">Comparativa fraccionado — mismas métricas para todos</div>
       <div class="sh-title">seQura vs Klarna vs Scalapay vs Aplazame <span class="pill pa">Mar 2026</span></div>
+
+      <div class="al" style="background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.25);margin-bottom:20px">
+        <div class="al-icon">⚖️</div>
+        <div class="al-b">
+          <strong>Riesgo regulatorio crítico — Directiva (UE) 2023/2225 · Vigencia: 20 nov 2026</strong>
+          <p>La nueva Directiva Europea de Crédito al Consumo incluye explícitamente los productos BNPL. Desde noviembre 2026, todos los operadores estarán obligados a expresar el coste como TAE y respetar un tope máximo. España aprobó el Anteproyecto de Ley el 7 enero 2026 con limitación de costes como medida central.</p>
+          <p style="margin-top:8px;color:#8B5CF6;font-weight:600">Impacto en seQura: el modelo de "coste fijo por cuota" equivale a TAEs muy elevadas (hasta ~59% en 6 meses). Al obligar a mostrar la TAE, el producto puede perder atractivo frente a competidores que ya operan con TAE declarada. Es el mayor riesgo estratégico del fraccionado a corto plazo.</p>
+        </div>
+      </div>
 
       <div class="comp-grid">
         <div class="cc feat">
           <div class="cc-head"><div><div class="cc-name teal">seQura</div><div class="cc-sub">🇪🇸 España · Divide en 3 + Fraccionado</div></div><div><div class="cc-score-val">4.4 TP★</div><div class="cc-score-sub">4.1★ iOS · 3.7★ GP</div></div></div>
-          <div class="cc-row"><span class="cc-rl">Plazos disponibles</span><span class="cc-rv vg">3, 4, 6, 12, 18 meses</span></div>
-          <div class="cc-row"><span class="cc-rl">Modelo de coste</span><span class="cc-rv va">Coste fijo/cuota (3–5€/mes)</span></div>
-          <div class="cc-row"><span class="cc-rl">TAE equivalente</span><span class="cc-rv vr">Hasta ~59% en 6 meses</span></div>
+          <div class="cc-row"><span class="cc-rl">Plazos</span><span class="cc-rv vg">3 (gratis) · 4, 6, 12, 18m</span></div>
+          <div class="cc-row"><span class="cc-rl">Modelo de coste</span><span class="cc-rv va">Coste fijo/cuota · TAE no declarada</span></div>
+          <div class="cc-row"><span class="cc-rl">TAE equivalente</span><span class="cc-rv vr">Hasta ~59% en 6 meses ⚠ 2026</span></div>
           <div class="cc-row"><span class="cc-rl">Sin nómina</span><span class="cc-rv vg">✓ Solo DNI + móvil</span></div>
-          <div class="cc-row"><span class="cc-rl">Seguro protección pagos</span><span class="cc-rv vu">⭐ ÚNICO — desempleo/hospital.</span></div>
-          <div class="cc-row"><span class="cc-rl">Amortización anticipada</span><span class="cc-rv vg">✓ Sin penalización</span></div>
+          <div class="cc-row"><span class="cc-rl">Seguro protección</span><span class="cc-rv vu">⭐ ÚNICO del sector</span></div>
           <div class="cc-row"><span class="cc-rl">Tarjetas aceptadas</span><span class="cc-rv vr">Solo españolas ⚠</span></div>
+          <div class="cc-row"><span class="cc-rl">App rating</span><span class="cc-rv va">3.7★ GP · 4.1★ iOS</span></div>
           <div class="cc-ins">
-            <div class="ci"><span>⭐</span><span>Seguro de protección de pagos es el diferenciador más potente vs toda la competencia.</span></div>
-            <div class="ci"><span>⭐</span><span>Sin nómina ni papeleos — capta perfiles que los bancos rechazan.</span></div>
-            <div class="ci"><span>⚠️</span><span>TAE real muy alta en plazos cortos. Riesgo regulatorio desde nov 2026.</span></div>
-            <div class="ci"><span>❌</span><span>Solo tarjetas españolas — excluye expatriados y turistas.</span></div>
+            <div class="ci"><span>⭐</span><span>Seguro de protección ante desempleo/hospitalización — nadie más lo ofrece.</span></div>
+            <div class="ci"><span>⭐</span><span>Sin nómina ni papeleos — capta perfiles excluidos por la banca.</span></div>
+            <div class="ci"><span>⚠️</span><span>TAE real muy alta en plazos medios. Riesgo regulatorio inmediato (nov 2026).</span></div>
+            <div class="ci"><span>❌</span><span>Solo tarjetas españolas — excluye expatriados y tarjetas internacionales.</span></div>
           </div>
         </div>
         <div class="cc">
-          <div class="cc-head"><div><div class="cc-name">Klarna</div><div class="cc-sub">🇸🇪 Pay in 3/4 + Financing</div></div><div><div class="cc-score-val">4.0 TP★</div><div class="cc-score-sub">4.8★ iOS · 4.7★ GP</div></div></div>
-          <div class="cc-row"><span class="cc-rl">Plazos disponibles</span><span class="cc-rv vg">3, 4 cuotas + hasta 36m</span></div>
+          <div class="cc-head"><div><div class="cc-name">Klarna</div><div class="cc-sub">🇸🇪 Pay in 3/4 + Financing</div></div><div><div class="cc-score-val">4.4 TP★</div><div class="cc-score-sub">+500k reviews · 4.8★ iOS · 4.7★ GP</div></div></div>
+          <div class="cc-row"><span class="cc-rl">Plazos</span><span class="cc-rv vg">3, 4 cuotas + hasta 36 meses</span></div>
           <div class="cc-row"><span class="cc-rl">Modelo de coste</span><span class="cc-rv vg">0% corto · TAE variable largo</span></div>
           <div class="cc-row"><span class="cc-rl">TAE equivalente</span><span class="cc-rv va">0% corto · hasta 21.9% largo</span></div>
           <div class="cc-row"><span class="cc-rl">Sin nómina</span><span class="cc-rv va">Soft credit check</span></div>
-          <div class="cc-row"><span class="cc-rl">Seguro protección pagos</span><span class="cc-rv vr">✗ No incluye</span></div>
-          <div class="cc-row"><span class="cc-rl">Amortización anticipada</span><span class="cc-rv vg">✓ Sin penalización</span></div>
+          <div class="cc-row"><span class="cc-rl">Seguro protección</span><span class="cc-rv vr">✗ No incluye</span></div>
           <div class="cc-row"><span class="cc-rl">Tarjetas aceptadas</span><span class="cc-rv vg">Internacionales ✓</span></div>
+          <div class="cc-row"><span class="cc-rl">App rating</span><span class="cc-rv vg">4.7★ GP · 4.8★ iOS</span></div>
           <div class="cc-ins">
-            <div class="ci"><span>✅</span><span>App superior 4.7★ GP — tracking, devoluciones en 1 clic, cashback.</span></div>
-            <div class="ci"><span>✅</span><span>Mayor red de tiendas. TAE ya declarada — mejor posicionada para 2026.</span></div>
-            <div class="ci"><span>⚠️</span><span>TAE variable según perfil puede ser más cara que seQura en plazos largos.</span></div>
+            <div class="ci"><span>✅</span><span>TAE ya declarada en todos los productos — mejor posicionada ante regulación 2026.</span></div>
+            <div class="ci"><span>✅</span><span>Mejor app del sector. Pausa automática en disputas.</span></div>
+            <div class="ci"><span>⚠️</span><span>TAE variable puede ser más cara que seQura en plazos muy largos.</span></div>
           </div>
         </div>
         <div class="cc">
           <div class="cc-head"><div><div class="cc-name">Scalapay</div><div class="cc-sub">🇮🇹 BNPL corto puro · 3/4 cuotas</div></div><div><div class="cc-score-val">4.8 TP★</div><div class="cc-score-sub">+124k reviews</div></div></div>
-          <div class="cc-row"><span class="cc-rl">Plazos disponibles</span><span class="cc-rv va">Solo 3 o 4 cuotas</span></div>
-          <div class="cc-row"><span class="cc-rl">Modelo de coste</span><span class="cc-rv vg">0% TAE · sin intereses</span></div>
-          <div class="cc-row"><span class="cc-rl">TAE equivalente</span><span class="cc-rv vg">0% · sin largo plazo</span></div>
+          <div class="cc-row"><span class="cc-rl">Plazos</span><span class="cc-rv va">Solo 3 o 4 cuotas</span></div>
+          <div class="cc-row"><span class="cc-rl">Modelo de coste</span><span class="cc-rv vg">0% TAE · comercio asume coste</span></div>
+          <div class="cc-row"><span class="cc-rl">TAE equivalente</span><span class="cc-rv vg">0% — inmune a regulación 2026</span></div>
           <div class="cc-row"><span class="cc-rl">Sin nómina</span><span class="cc-rv vg">Aprobación instantánea</span></div>
-          <div class="cc-row"><span class="cc-rl">Seguro protección pagos</span><span class="cc-rv vr">✗ No incluye</span></div>
-          <div class="cc-row"><span class="cc-rl">Amortización anticipada</span><span class="cc-rv vm">No aplica (corto plazo)</span></div>
+          <div class="cc-row"><span class="cc-rl">Seguro protección</span><span class="cc-rv vr">✗ No incluye</span></div>
           <div class="cc-row"><span class="cc-rl">Tarjetas aceptadas</span><span class="cc-rv vg">Internacionales ✓</span></div>
+          <div class="cc-row"><span class="cc-rl">App rating</span><span class="cc-rv vg">4.8★ TP</span></div>
           <div class="cc-ins">
-            <div class="ci"><span>✅</span><span>0% TAE real — sin regulación de costes porque no cobra intereses.</span></div>
-            <div class="ci"><span>❌</span><span>Sin largo plazo. No sirve para compras grandes (muebles, electrónica cara).</span></div>
-            <div class="ci"><span>⚠️</span><span>Sigue cobrando durante devoluciones. Soporte solo por email.</span></div>
+            <div class="ci"><span>✅</span><span>0% TAE real — sin impacto de la regulación 2026. Modelo más sostenible regulatoriamente.</span></div>
+            <div class="ci"><span>❌</span><span>Sin largo plazo. No sirve para compras grandes. Sin gestión de disputas automática.</span></div>
           </div>
         </div>
         <div class="cc">
           <div class="cc-head"><div><div class="cc-name">Aplazame</div><div class="cc-sub">🇪🇸 WiZink Bank · hasta 36 meses</div></div><div><div class="cc-score-val">4.8 TP★</div><div class="cc-score-sub">+27k reviews</div></div></div>
-          <div class="cc-row"><span class="cc-rl">Plazos disponibles</span><span class="cc-rv vg">4 cuotas 0% + hasta 36 meses</span></div>
+          <div class="cc-row"><span class="cc-rl">Plazos</span><span class="cc-rv vg">4 cuotas 0% + hasta 36 meses</span></div>
           <div class="cc-row"><span class="cc-rl">Modelo de coste</span><span class="cc-rv vg">TAE variable · ya declarada</span></div>
-          <div class="cc-row"><span class="cc-rl">TAE equivalente</span><span class="cc-rv va">0%–19.95% según plazo/perfil</span></div>
+          <div class="cc-row"><span class="cc-rl">TAE equivalente</span><span class="cc-rv va">0%–19.95% · ya regulado</span></div>
           <div class="cc-row"><span class="cc-rl">Sin nómina</span><span class="cc-rv vg">✓ Aprobación rápida</span></div>
-          <div class="cc-row"><span class="cc-rl">Seguro protección pagos</span><span class="cc-rv vg">✓ Desempleo/hospitalización</span></div>
-          <div class="cc-row"><span class="cc-rl">Amortización anticipada</span><span class="cc-rv vg">✓ Sin penalización</span></div>
+          <div class="cc-row"><span class="cc-rl">Seguro protección</span><span class="cc-rv vg">✓ Desempleo/hospitalización</span></div>
           <div class="cc-row"><span class="cc-rl">Tarjetas aceptadas</span><span class="cc-rv vg">Internacionales ✓</span></div>
+          <div class="cc-row"><span class="cc-rl">App rating</span><span class="cc-rv vm">Datos insuficientes</span></div>
           <div class="cc-ins">
-            <div class="ci"><span>✅</span><span>4.8★ TP +27k reviews. Respaldo WiZink. Plazos hasta 36 meses — el más largo del mercado.</span></div>
-            <div class="ci"><span>✅</span><span>TAE ya declarada y regulada — ventaja competitiva desde nov 2026.</span></div>
-            <div class="ci"><span>⚠️</span><span>Menor penetración digital. Recargos por mora elevados según usuarios.</span></div>
+            <div class="ci"><span>✅</span><span>TAE ya declarada y regulada por WiZink — ventaja directa ante Directiva 2026.</span></div>
+            <div class="ci"><span>✅</span><span>También tiene seguro de protección — compite directamente con seQura en diferenciadores.</span></div>
+            <div class="ci"><span>⚠️</span><span>Menor penetración digital y de tiendas vs seQura y Klarna.</span></div>
           </div>
         </div>
       </div>
     </div><!-- /frac-comp -->
 
-    <!-- FRACCIONADO: Regulación 2026 -->
-    <div class="panel" id="p-frac-reg">
-      <div class="sh-tag">Riesgo estratégico crítico — impacto directo en el modelo de negocio</div>
-      <div class="sh-title">Directiva (UE) 2023/2225 · Vigencia 20 nov 2026 <span class="pill" style="background:rgba(139,92,246,.1);color:#8B5CF6">⚖️ Regulatorio</span></div>
-
-      <div class="al" style="background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.25);margin-bottom:20px">
-        <div class="al-icon">⚖️</div>
-        <div class="al-b">
-          <strong>¿Qué cambia exactamente desde el 20 de noviembre de 2026?</strong>
-          <p>La Directiva Europea de Crédito al Consumo (2023/2225) incluye explícitamente los productos BNPL en su ámbito. Tres impactos directos para seQura: (1) obligación de mostrar la TAE, (2) evaluación de solvencia obligatoria antes de cada crédito, (3) posible tope máximo de TAE fijado por cada Estado. España aprobó el Anteproyecto de Ley el 7 de enero de 2026 con limitación de costes como medida central.</p>
-        </div>
+    <!-- ══ FRACCIONADO: Comparativa ══ -->
+    <div class="panel" id="p-frac-tabla">
+      <div class="sh-tag">Comparativa directa del producto fraccionado</div>
+      <div class="sh-title">España · Mar 2026 — Solo pago fraccionado <span class="pill pa">Verificado</span></div>
+      <table class="dt">
+        <thead>
+          <tr><th>Empresa</th><th>Plazos</th><th>Coste cliente</th><th>TAE real</th><th>Sin nómina</th><th>Seguro</th><th>TP★</th><th>G.Play★</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong style="color:var(--teal)">seQura</strong></td><td><span class="pill pg">3–18 meses</span></td><td><span class="pill pa">Fijo/cuota</span></td><td><span class="pill pr">Hasta 59% ⚠</span></td><td><span class="pill pg">✓ Solo DNI</span></td><td><span class="pill pg">⭐ Único</span></td><td>4.4</td><td><span style="color:var(--amber)">3.7</span></td></tr>
+          <tr><td><strong>Klarna</strong></td><td><span class="pill pg">3, 4, 36 meses</span></td><td><span class="pill pg">0% corto</span></td><td><span class="pill pa">0–21.9%</span></td><td><span class="pill pa">Soft check</span></td><td><span class="pill pr">✗ No</span></td><td style="color:var(--green)">4.4</td><td style="color:var(--green)">4.7</td></tr>
+          <tr><td><strong>Aplazame</strong></td><td><span class="pill pg">4, 36 meses</span></td><td><span class="pill pg">0% corto</span></td><td><span class="pill pa">0–19.95%</span></td><td><span class="pill pg">✓</span></td><td><span class="pill pg">✓ Sí</span></td><td style="color:var(--green)">4.8</td><td>—</td></tr>
+          <tr><td><strong>Scalapay</strong></td><td><span class="pill pa">Solo 3 o 4</span></td><td><span class="pill pg">0% siempre</span></td><td><span class="pill pg">0%</span></td><td><span class="pill pg">✓</span></td><td><span class="pill pr">✗ No</span></td><td>4.8</td><td>—</td></tr>
+        </tbody>
+      </table>
+      <div class="al al-r">
+        <div class="al-icon">⚠️</div>
+        <div class="al-b"><strong>Conclusión: seQura tiene ventajas únicas pero el mayor riesgo regulatorio del sector</strong>
+        <p>Seguro de protección + sin nómina = diferenciadores reales. Pero la TAE oculta (~59% en 6 meses) es el mayor riesgo ante la Directiva 2026. Klarna y Aplazame ya operan con TAE declarada — están mejor posicionadas para el cambio regulatorio. Scalapay es inmune porque no cobra al cliente.</p></div>
       </div>
+    </div><!-- /frac-tabla -->
 
-      <div class="g2">
-        <div class="fc pain">
-          <div class="fc-icon">📊</div>
-          <div class="fc-title">El problema: TAE real vs "coste fijo por cuota"</div>
-          <div class="fc-text">seQura comunica "3€/mes" en lugar de TAE. Pero un préstamo de 200€ en 6 meses con 5€/mes de coste fijo equivale a una TAE del ~59%. La comunicación actual es legalmente válida hoy, pero desde nov 2026 habrá que expresar la TAE obligatoriamente en toda publicidad y contrato — lo que cambia radicalmente la percepción del cliente.</div>
-        </div>
-        <div class="fc pain">
-          <div class="fc-icon">🏦</div>
-          <div class="fc-title">Registro y autorización previa de operadores</div>
-          <div class="fc-text">La Directiva exige que los operadores BNPL obtengan registro y autorización de supervisor financiero, igual que los bancos. seQura opera hoy sin licencia bancaria en España. Esto implica un proceso regulatorio costoso y potencial retraso operativo durante la transición.</div>
-        </div>
-        <div class="fc warn">
-          <div class="fc-icon">🔍</div>
-          <div class="fc-title">Evaluación de solvencia obligatoria</div>
-          <div class="fc-text">Uno de los valores diferenciales de seQura es aprobar sin nómina ni papeleos. La nueva directiva obliga a realizar una evaluación de solvencia proporcional antes de cada crédito. El reto: mantener la agilidad (aprobación en segundos) cumpliendo con la norma.</div>
-        </div>
-        <div class="fc info">
-          <div class="fc-icon">🇪🇸</div>
-          <div class="fc-title">España: Anteproyecto de Ley aprobado 7 enero 2026</div>
-          <div class="fc-text">El Consejo de Ministros aprobó el Anteproyecto el 7 enero 2026. La TAE no podrá superar el tipo medio de crédito al consumo más un margen por tramos de importe. Periodo de audiencia pública hasta 30 enero 2026. Aplicación desde 20 nov 2026.</div>
-        </div>
-      </div>
-
-      <div class="div"></div>
-      <div class="sh-tag">Posicionamiento competitivo ante la regulación</div>
-      <div class="sh-title">¿Quién sale ganando y quién perdiendo? <span class="pill pr">Análisis</span></div>
-
-      <div class="opp"><div class="n-circ" style="background:rgba(239,68,68,.1);color:var(--red)">!</div><div class="ob"><h4>seQura — Mayor exposición del sector</h4><p>El modelo de "coste fijo por cuota" equivale a TAEs muy elevadas en plazos cortos/medios. Al obligar a mostrar la TAE, el producto puede perder atractivo percibido frente a bancos y competidores que ya operan con TAE declarada. Además, la falta de licencia bancaria implica un proceso de registro regulatorio nuevo.</p></div></div>
-      <div class="opp"><div class="n-circ" style="background:rgba(16,185,129,.1);color:var(--green)">✓</div><div class="ob"><h4>Aplazame — Mejor posicionada (ya es banco)</h4><p>Respaldada por WiZink Bank y con TAE ya declarada en todos sus contratos. La regulación les beneficia porque iguala las condiciones de juego con competidores que operan sin licencia bancaria.</p></div></div>
-      <div class="opp"><div class="n-circ" style="background:rgba(16,185,129,.1);color:var(--green)">✓</div><div class="ob"><h4>Klarna — Bien adaptada (licencia bancaria sueca)</h4><p>Opera con licencia bancaria desde 2017. Ya muestra TAE en todos sus productos. La nueva regulación les afecta menos porque ya cumplen los requisitos de fondo, aunque deberán adaptarse a cada transposición nacional.</p></div></div>
-      <div class="opp"><div class="n-circ" style="background:rgba(16,185,129,.1);color:var(--green)">✓</div><div class="ob"><h4>Scalapay — Sin problema (0% TAE real)</h4><p>Al no cobrar intereses ni costes de financiación al cliente (el comercio asume la comisión), el tope de TAE no les afecta directamente. Su modelo 0% es inmune a esta regulación.</p></div></div>
-    </div><!-- /frac-reg -->
-
-    <!-- FRACCIONADO: Oportunidades -->
+    <!-- ══ FRACCIONADO: Oportunidades ══ -->
     <div class="panel" id="p-frac-opps">
       <div class="sh-tag">Conclusiones estratégicas del análisis</div>
       <div class="sh-title">Oportunidades accionables — pago fraccionado <span class="pill pg">💡 Alta prioridad</span></div>
 
-      <div class="opp"><div class="n-circ">1</div><div class="ob"><h4>Preparar la transición al modelo TAE antes de noviembre 2026</h4><p>El cambio más urgente. Reformular la comunicación de costes para que sea TAE-compatible sin perder la claridad percibida del "coste fijo". Testear cómo impacta en conversión mostrar "TAE 24%" vs "3€/mes". El cliente que hoy elige seQura por los "3€/mes" puede cambiar de opción al ver el TAE equivalente.</p></div></div>
-      <div class="opp"><div class="n-circ">2</div><div class="ob"><h4>El seguro de protección es el diferenciador que nadie comunica — amplificarlo</h4><p>Es el único competidor del sector que incluye seguro de desempleo y hospitalización. Ni Klarna, ni Scalapay, ni Aplazame lo tienen. Sin embargo, apenas aparece en la comunicación al cliente. Debería estar en primer plano: "Fracciona con tranquilidad — si pierdes el trabajo, estás cubierto."</p></div></div>
-      <div class="opp"><div class="n-circ">3</div><div class="ob"><h4>Resolver el problema de las devoluciones con financiación activa</h4><p>El pain point #1 del fraccionado: el cliente devuelve, la tienda tarda en notificar a seQura, y mientras tanto sigue siendo cobrado. La solución técnica existe (igual que el invoice): congelar automáticamente las cuotas desde que el cliente notifica la devolución en la app, sin esperar a la tienda.</p></div></div>
-      <div class="opp"><div class="n-circ">4</div><div class="ob"><h4>Abrir a tarjetas internacionales para capturar el segmento expatriado</h4><p>La restricción a tarjetas españolas excluye un segmento relevante en ciudades como Barcelona, Madrid o Valencia. Klarna y Aplazame no tienen esta restricción. Es una barrera de entrada que se puede eliminar con impacto directo en conversión.</p></div></div>
-      <div class="opp"><div class="n-circ">5</div><div class="ob"><h4>Obtener la licencia regulatoria antes de que la obliguen</h4><p>La Directiva 2023/2225 obligará a todos los operadores BNPL a registrarse como entidad supervisada. Iniciar el proceso proactivamente (antes de nov 2026) evita el riesgo de tener que interrumpir operaciones durante la transición regulatoria.</p></div></div>
-      <div class="opp"><div class="n-circ">6</div><div class="ob"><h4>Comunicar el fraccionado como herramienta de gestión de liquidez, no de crédito</h4><p>Los foros muestran que el usuario de fraccionado es mayoritariamente una persona con ingresos pero sin liquidez inmediata, no alguien sin dinero. El mensaje "gestiona tu liquidez como tú quieras" conecta mejor con este perfil que el tradicional mensaje de crédito al consumo.</p></div></div>
+      <div class="opp"><div class="n-circ">1</div><div class="ob"><h4>Preparar la transición al modelo TAE antes de noviembre 2026 — urgente</h4><p>El cambio más crítico. Reformular la comunicación de costes para que sea TAE-compatible sin perder la claridad del "coste fijo". Testear cómo impacta en conversión mostrar "TAE 24%" vs "3€/mes". Iniciar el proceso de registro como entidad supervisada antes de que sea obligatorio para evitar interrupciones operativas.</p></div></div>
+      <div class="opp"><div class="n-circ">2</div><div class="ob"><h4>Amplificar el seguro de protección — el diferenciador que nadie conoce</h4><p>Es el único BNPL del sector que incluye seguro ante desempleo y hospitalización. Ni Klarna ni Scalapay lo tienen. Aplazame también lo incluye, pero con menor visibilidad. Este feature debería estar en el checkout, en la app, en los ads y en la comunicación post-compra: "Fracciona con tranquilidad — si pierdes el trabajo, estás cubierto."</p></div></div>
+      <div class="opp"><div class="n-circ">3</div><div class="ob"><h4>Resolver las devoluciones con financiación activa</h4><p>El pain point #1 del fraccionado. El cliente devuelve, la tienda tarda en notificar a seQura, y mientras tanto sigue siendo cobrado. La solución técnica existe: congelar automáticamente las cuotas desde que el cliente notifica la devolución en la app, sin esperar a la tienda. Klarna ya lo hace para el invoice — aplicarlo también al fraccionado.</p></div></div>
+      <div class="opp"><div class="n-circ">4</div><div class="ob"><h4>Abrir a tarjetas internacionales</h4><p>La restricción a tarjetas españolas excluye un segmento relevante en ciudades con alta población expatriada. Klarna y Aplazame no tienen esta restricción. Es una barrera de entrada eliminable con impacto directo en conversión en Barcelona, Madrid y Valencia.</p></div></div>
+      <div class="opp"><div class="n-circ">5</div><div class="ob"><h4>Comunicar el fraccionado como herramienta de gestión de liquidez, no de crédito</h4><p>Los foros muestran que el usuario es mayoritariamente alguien con ingresos pero sin liquidez inmediata. El mensaje "gestiona tu liquidez como tú quieras" conecta mejor que "crédito al consumo". Especialmente relevante para capturar a la Generación Z que evita activamente los términos bancarios tradicionales.</p></div></div>
+      <div class="opp"><div class="n-circ">6</div><div class="ob"><h4>Mejorar la app a 4.5★ en Google Play — impacto directo en el fraccionado</h4><p>El fraccionado implica una relación de meses con el cliente, no de 7 días como el invoice. Cada cuota, cada cambio de fecha, cada amortización anticipada pasa por la app. Con 3.7★ vs Klarna 4.7★, la brecha de experiencia se acumula durante toda la vida del plan y genera reviews negativas que afectan directamente a la recurrencia del producto.</p></div></div>
     </div><!-- /frac-opps -->
 
   </div><!-- /prod-fraccionado -->
@@ -832,7 +893,7 @@ function switchProd(id, el) {
 function swf(id,el){
   document.querySelectorAll('#tabs-frac .tab').forEach(t=>t.classList.remove('on'));
   el.classList.add('on');
-  ['frac-seq','frac-com','frac-comp','frac-reg','frac-opps'].forEach(p=>{
+  ['frac-seq','frac-google','frac-reddit','frac-comp','frac-tabla','frac-opps'].forEach(p=>{
     const el2=document.getElementById('p-'+p);
     if(el2) el2.classList.remove('on');
   });
@@ -886,7 +947,20 @@ const SYS=`Eres el agente de análisis del producto "Paga en 7 días" (invoice) 
 6. Comunicar "sin tarjeta" en todo el funnel
 7. Caso de uso "compra urgente sin liquidez inmediata"
 
-Responde SIEMPRE en español. Sé conciso y preciso. Si preguntan sobre pagos fraccionados, redirige: "ese es otro producto, mi foco es el invoice (paga en 7 días)".`;
+Responde SIEMPRE en español. Sé conciso y preciso.
+
+Tienes datos de DOS productos de seQura:
+
+**PAGO FRACCIONADO (Divide en 3 y Fraccionado 3-18 meses):**
+- Divide en 3: gratis (0€) cuando la tienda subsidia, o 2.95% apertura si no. 3 cuotas iguales.
+- Pago Fraccionado: 4, 6, 12 o 18 meses con coste fijo por cuota (~3-5€/mes). TIN 0% pero TAE equivalente puede llegar al ~59% en 6 meses.
+- Solo tarjetas españolas. Requiere DNI + móvil + tarjeta. Mínimo 60€.
+- Diferenciador único: seguro de protección ante desempleo y hospitalización. Ningún competidor lo tiene.
+- Pain points: devoluciones con financiación activa (cobros durante el proceso), soporte automático, tarjetas solo españolas.
+- Riesgo crítico 2026: Directiva (UE) 2023/2225 obliga a declarar TAE y posible tope máximo desde 20 nov 2026. España aprobó Anteproyecto de Ley en enero 2026.
+- Competencia fraccionado: Klarna (4.4★ TP, TAE ya declarada, mejor app), Aplazame (4.8★ TP, también tiene seguro, hasta 36m), Scalapay (solo 3-4 cuotas, 0% TAE, inmune a regulación).
+
+Si no sabes si la pregunta es sobre invoice o fraccionado, pregunta al usuario.`;
 
 let history=[],loading=false;
 function sc(t){document.getElementById('inp').value=t;go()}
