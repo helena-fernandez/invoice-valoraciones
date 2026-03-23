@@ -850,7 +850,7 @@ textarea::placeholder{color:var(--txt3)}
 <div class="chat-wrap">
   <div class="ch">
     <div class="ch-t">🤖 HeleBot</div>
-    <div class="ch-s">Pregunta sobre el análisis · Solo producto invoice / paga después</div>
+    <div class="ch-s">Pregunta sobre el análisis · Invoice y Pago Fraccionado</div>
   </div>
   <div class="cm" id="msgs">
     <div class="msg b" style="font-size:11.5px;line-height:1.6">¡Hola! Soy el agente de análisis del producto <strong>Paga en 7 días</strong> de seQura.<br><br>Tengo datos de <strong>Trustpilot, Google Maps (4.0★), Google Play (3.7★), foros y comunidades</strong> sobre el invoice — solo el invoice.<br><br>Puedo responder sobre:<br>• Lo que dicen los clientes del invoice<br>• La brecha Trustpilot vs Google Play<br>• Cómo está el invoice en Klarna, Scalapay, Aplazame<br>• Oportunidades estratégicas del producto</div>
@@ -920,10 +920,10 @@ const SYS_INV=`Eres HeleBot, el agente de análisis del producto "Paga en 7 día
 Si preguntan sobre fraccionado, di: "Estás en el panel de Invoice. Cambia al panel de Pago Fraccionado para preguntar sobre ese producto."
 Responde siempre en español. Sé conciso.`;
 
-const SYS_FRAC=`Eres HeleBot, el agente de análisis del producto "Pago Fraccionado" de seQura. Responde SOLO sobre el fraccionado — Divide en 3 y Pago Fraccionado de 3 a 18 meses.
+const SYS_FRAC=`Eres HeleBot, el agente de análisis del producto "Pago Fraccionado" de seQura. Responde SOLO sobre el fraccionado — Divide en 3 gratis y Pago Fraccionado de 3 a 18 meses.
 
 **PRODUCTO FRACCIONADO:**
-- Divide en 3: 3 cuotas gratis (cuando la tienda subsidia) o con 2.95% apertura.
+- Divide en 3: 3 cuotas gratis para el shopper.
 - Pago Fraccionado: 4, 6, 12 o 18 meses con coste fijo por cuota (~3-5€/mes). TIN 0% pero TAE equivalente puede llegar al ~59% en 6 meses.
 - Solo tarjetas españolas. Requiere DNI + móvil + tarjeta. Mínimo 60€.
 - Diferenciador único: seguro de protección ante desempleo y hospitalización. Ningún competidor BNPL lo tiene.
